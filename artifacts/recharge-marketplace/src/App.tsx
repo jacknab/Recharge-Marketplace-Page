@@ -4,7 +4,7 @@ import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import NotFound from '@/pages/not-found';
-import { Gift, Heart, MapPin, Search, ShoppingCart, Sparkles, Star, Tag, Ticket, UserRound, Utensils, Wrench, X } from 'lucide-react';
+import { Bell, Gift, Heart, MapPin, Search, ShoppingCart, Sparkles, Star, Tag, Ticket, UserRound, Utensils, Wrench, X } from 'lucide-react';
 import {
   Route,
   Switch,
@@ -23,15 +23,15 @@ function Home() {
   const [feedback, setFeedback] = useState('');
 
   const categories = [
-    { name: 'All', icon: Sparkles },
-    { name: 'Beauty & Spas', icon: Sparkles },
-    { name: 'Things To Do', icon: Ticket },
-    { name: 'Auto & Home', icon: Wrench },
-    { name: 'Food & Drink', icon: Utensils },
-    { name: 'Gifts', icon: Gift },
-    { name: 'Local', icon: UserRound },
-    { name: 'Travel', icon: MapPin },
-    { name: 'Goods', icon: Tag },
+    { name: 'Fall Recharge', key: 'All', icon: Sparkles },
+    { name: 'Beauty & Spas', key: 'Beauty & Spas', icon: Sparkles },
+    { name: 'Things To Do', key: 'Things To Do', icon: Ticket },
+    { name: 'Auto & Home', key: 'Auto & Home', icon: Wrench },
+    { name: 'Food & Drink', key: 'Food & Drink', icon: Utensils },
+    { name: 'Gifts', key: 'Gifts', icon: Gift },
+    { name: 'Local', key: 'Local', icon: UserRound },
+    { name: 'Travel', key: 'Travel', icon: MapPin },
+    { name: 'Goods', key: 'Goods', icon: Tag },
   ];
   const deals = [
     { id: 'nails', name: 'Gel and Acrylic Nail Services', meta: 'Willow Park, Aurora', rating: '4.3', reviews: '101', price: '$27.20', was: '$34', save: '32%', image: '/reference/deal-1.jpg', position: 'center', categories: ['Beauty & Spas'] },
@@ -55,20 +55,30 @@ function Home() {
       <main className="market-shell">
         <header>
           <div className="topbar">
-            <label className="search-box" data-testid="search-box">
-              <input data-testid="input-search" type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search Theatre" aria-label="Search deals" />
-              {query ? <button className="search-button" data-testid="button-clear-search" onClick={() => setQuery('')} aria-label="Clear search"><X size={10} /></button> : <span className="search-button" aria-hidden="true"><Search size={10} /></span>}
-            </label>
-            <button className="cart-button" data-testid="button-cart" onClick={() => setFeedback('Your saved deals are waiting here')} aria-label="Saved deals"><ShoppingCart size={14} strokeWidth={1.5} /><span className="cart-count">{favorites.length}</span></button>
+            <div className="topbar-inner">
+              <div className="brand-logo" aria-label="Groupon home">GROUPON</div>
+              <label className="search-box" data-testid="search-box">
+                <input data-testid="input-search" type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search Spa" aria-label="Search deals" />
+                {query ? <button className="search-button" data-testid="button-clear-search" onClick={() => setQuery('')} aria-label="Clear search"><X size={12} /></button> : <span className="search-button" aria-hidden="true"><Search size={13} /></span>}
+              </label>
+              <div className="top-actions">
+                <button className="utility-link" onClick={() => setFeedback('Groupon App')}><span className="utility-phone">▣</span> App</button>
+                <button className="utility-link" onClick={() => setFeedback('Sell on Groupon')}>▣&nbsp; Sell on Groupon</button>
+                <button className="icon-action" onClick={() => setFeedback('Your saved deals are waiting here')} aria-label="Saved deals"><Heart size={18} strokeWidth={1.6} /><span className="cart-count">{favorites.length}</span></button>
+                <button className="icon-action" onClick={() => setFeedback('No new notifications')} aria-label="Notifications"><Bell size={18} strokeWidth={1.6} /></button>
+                <button className="icon-action" data-testid="button-cart" onClick={() => setFeedback('Your cart is waiting here')} aria-label="Cart"><ShoppingCart size={19} strokeWidth={1.6} /><span className="cart-count cart-count-cart">{favorites.length || 1}</span></button>
+                <button className="profile-button" onClick={() => setFeedback('Account menu')}>TB <span>⌄</span></button>
+              </div>
+            </div>
           </div>
           <nav className="category-bar no-scrollbar" aria-label="Deal categories">
-            {categories.map(({ name, icon: Icon }) => <button key={name} className={`category-item ${category === name ? 'active' : ''}`} data-testid={`button-category-${name.toLowerCase().replaceAll(' ', '-')}`} onClick={() => setCategory(name)}><Icon size={9} strokeWidth={1.4} />{name}</button>)}
+            {categories.map(({ name, key, icon: Icon }) => <button key={name} className={`category-item ${category === key ? 'active' : ''}`} data-testid={`button-category-${name.toLowerCase().replaceAll(' ', '-')}`} onClick={() => setCategory(key)}><Icon size={15} strokeWidth={1.4} />{name}</button>)}
           </nav>
         </header>
         <section className="hero" aria-label="Promotion">
           <img src="/reference/hero.jpg" alt="Relaxing facial treatment" />
           <div className="hero-copy"><div className="hero-title">Recharge your Glow</div><div className="hero-subtitle">Extra savings on facial care — this week only!</div></div>
-          <div className="hero-pill">RELAX</div>
+          <div className="hero-code">USE CODE: <span>RELAX</span></div>
         </section>
         <section className="deals-section">
           <div className="deals-top">
