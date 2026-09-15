@@ -34,18 +34,18 @@ function Home() {
     { name: 'Goods', key: 'Goods', icon: Tag },
   ];
   const deals = [
-    { id: 'nails', name: 'Gel and Acrylic Nail Services', meta: 'Willow Park, Aurora', rating: '4.3', reviews: '101', price: '$27.20', was: '$34', save: '32%', image: '/reference/deal-1.jpg', position: 'center', categories: ['Beauty & Spas'] },
-    { id: 'massage', name: 'Full Body Massage at Denver School of Massage', meta: '7500 East Arapahoe Road, Centennial', rating: '4.7', reviews: '220', price: '$27.09', was: '$35', save: '26%', image: '/reference/deal-2.jpg', position: 'center', categories: ['Beauty & Spas'] },
-    { id: 'facial', name: 'PDO Smooth Threads for Skin Rejuvenation', meta: '9695 South Yosemite Street, Lone Tree', rating: '5', reviews: '77', price: '$144', was: '$180', save: '40%', image: '/reference/deal-3.jpg', position: 'center', categories: ['Beauty & Spas'] },
-    { id: 'salon', name: 'Spa A² at Westin Riverfront Resort And Residence', meta: '126 Riverfront Lane, Avon', rating: '4.8', reviews: '18', price: '$114', was: '$139', save: '18%', image: '/reference/deal-4.jpg', position: 'center', categories: ['Beauty & Spas', 'Travel'] },
-    { id: 'camera', name: 'Sale on Vintage Cameras and Film', meta: 'Five Points, Denver', rating: '4.6', reviews: '53', price: '$61', was: '$82', save: '25%', image: '/reference/editorial-6.jpg', position: 'center', categories: ['Goods', 'Gifts'] },
+    { id: 'nails', name: 'Gel and Acrylic Nail Services', meta: 'Willow Park, Aurora', rating: '4.3', reviews: '101', price: '$27.20', was: '$34', save: '32%', image: '/clean/nails.jpg', position: 'center', categories: ['Beauty & Spas'] },
+    { id: 'massage', name: 'Full Body Massage at Denver School of Massage', meta: '7500 East Arapahoe Road, Centennial', rating: '4.7', reviews: '220', price: '$27.09', was: '$35', save: '26%', image: '/clean/massage.jpg', position: 'center', categories: ['Beauty & Spas'] },
+    { id: 'facial', name: 'PDO Smooth Threads for Skin Rejuvenation', meta: '9695 South Yosemite Street, Lone Tree', rating: '5', reviews: '77', price: '$144', was: '$180', save: '40%', image: '/spa-hero.jpg', position: '75% 70%', categories: ['Beauty & Spas'] },
+    { id: 'salon', name: 'Spa A² at Westin Riverfront Resort And Residence', meta: '126 Riverfront Lane, Avon', rating: '4.8', reviews: '18', price: '$114', was: '$139', save: '18%', image: '/clean/salon.jpg', position: 'center', categories: ['Beauty & Spas', 'Travel'] },
+    { id: 'camera', name: 'Sale on Vintage Cameras and Film', meta: 'Five Points, Denver', rating: '4.6', reviews: '53', price: '$61', was: '$82', save: '25%', image: '/clean/cameras.jpg', position: 'center', categories: ['Goods', 'Gifts'] },
   ];
   const giftDeals = [
-    { id: 'gift-bowling', name: 'Bowling (Shoes included) for Easy Fun with Friends at Lucky Strike', meta: 'East, DENVER', rating: '4.8', reviews: '5,140', price: '$39', was: '$70.49', save: '-45%', cashback: '5% Cashback', image: '/reference/editorial-2.jpg' },
-    { id: 'gift-resort', name: 'Great Wolf Lodge Colorado Springs Water Park Resort', meta: 'Colorado Springs, CO', rating: '4.6', reviews: '2,913', price: '$128.84/night', was: '$198.20', save: '-35%', cashback: '5% Cashback', image: '/reference/editorial-4.jpg' },
-    { id: 'gift-massage', name: 'Couples 50-Minutes Therapy Deep Tissue or Swedish Body Massage', meta: 'West Westminster, Westminster', rating: '4.4', reviews: '188', price: '$160.29', was: '$296', save: '-40%', cashback: 'Popular Gift', image: '/reference/deal-3.jpg' },
-    { id: 'gift-oil-change', name: 'Up to 31% Off Jiffy Lube: 15-Minute Drive-Thru Oil Change', meta: 'Northeast, Denver', rating: '4.4', reviews: '9,864', price: '$39.99', was: '$57.99', save: '-31%', cashback: '5% Cashback', image: '/reference/editorial-3.jpg' },
-    { id: 'gift-spa', name: 'Relax and recharge with a spa day made for gifting', meta: 'Aurora, CO', rating: '4.7', reviews: '1,028', price: '$74', was: '$110', save: '-33%', cashback: 'Popular Gift', image: '/reference/deal-4.jpg' },
+    { id: 'gift-bowling', name: 'Bowling (Shoes included) for Easy Fun with Friends at Lucky Strike', meta: 'East, DENVER', rating: '4.8', reviews: '5,140', price: '$39', was: '$70.49', save: '-45%', cashback: '5% Cashback', image: '/clean/group.jpg', position: 'center' },
+    { id: 'gift-resort', name: 'Great Wolf Lodge Colorado Springs Water Park Resort', meta: 'Colorado Springs, CO', rating: '4.6', reviews: '2,913', price: '$128.84/night', was: '$198.20', save: '-35%', cashback: '5% Cashback', image: '/clean/friends.jpg', position: 'center' },
+    { id: 'gift-massage', name: 'Couples 50-Minutes Therapy Deep Tissue or Swedish Body Massage', meta: 'West Westminster, Westminster', rating: '4.4', reviews: '188', price: '$160.29', was: '$296', save: '-40%', cashback: 'Popular Gift', image: '/spa-hero.jpg', position: '75% 70%' },
+    { id: 'gift-oil-change', name: 'Up to 31% Off Jiffy Lube: 15-Minute Drive-Thru Oil Change', meta: 'Northeast, Denver', rating: '4.4', reviews: '9,864', price: '$39.99', was: '$57.99', save: '-31%', cashback: '5% Cashback', image: '/clean/lavender.jpg', position: 'center' },
+    { id: 'gift-spa', name: 'Relax and recharge with a spa day made for gifting', meta: 'Aurora, CO', rating: '4.7', reviews: '1,028', price: '$74', was: '$110', save: '-33%', cashback: 'Popular Gift', image: '/clean/salon.jpg', position: 'center' },
   ];
   const filteredDeals = useMemo(() => deals.filter((deal) => {
     const matchesCategory = category === 'All' || deal.categories.includes(category);
@@ -96,7 +96,7 @@ function Home() {
             </div>
           </div>
           <div className="deal-rail no-scrollbar" data-testid="deal-rail">
-            {filteredDeals.length ? filteredDeals.map((deal) => <article key={deal.id} className="deal-card" data-testid={`card-deal-${deal.id}`} onClick={() => selectDeal(deal.name)}>
+              {filteredDeals.length ? filteredDeals.map((deal) => <article key={deal.id} className="deal-card" data-testid={`card-deal-${deal.id}`} onClick={() => selectDeal(deal.name)}>
               <div className="deal-image"><img src={deal.image} alt="" style={{ objectPosition: deal.position }} /><span className="deal-badge">▣ Popular Gift</span><button className={`heart-button ${favorites.includes(deal.id) ? 'loved' : ''}`} data-testid={`button-favorite-${deal.id}`} onClick={(event) => { event.stopPropagation(); toggleFavorite(deal.id); }} aria-label={`Favorite ${deal.name}`}><Heart size={11} fill={favorites.includes(deal.id) ? 'currentColor' : 'none'} /></button></div>
               <div className="deal-name">{deal.name}</div><div className="deal-meta">{deal.meta}</div><div className="deal-rating"><Star size={8} fill="currentColor" /> {deal.rating} ({deal.reviews})</div><div className="deal-price"><del>{deal.was}</del>{deal.price}<span className="deal-save">with code RELAX</span></div>
             </article>) : <div className="empty-deals" data-testid="empty-deals">No deals match your search. Try a different category.</div>}
@@ -105,12 +105,12 @@ function Home() {
         </section>
         <section className="editorial" aria-label="Explore experiences">
           <div className="mosaic">
-            <article className="mosaic-card" data-testid="card-editorial-recharge" onClick={() => selectDeal('Recharge This Fall')}><img src="/reference/editorial-1.jpg" alt="Woman enjoying a spa treatment" /><div className="mosaic-label">Recharge This Fall<small>Massage, facials, spas & fitness up to 80% off</small></div></article>
-            <article className="mosaic-card" data-testid="card-editorial-summer" onClick={() => selectDeal('Summerween starts now')}><img src="/reference/editorial-2.jpg" alt="Summer experience" /><div className="mosaic-label">Summerween starts now<small>Save on spooky fun before Halloween prices rise</small></div></article>
-            <article className="mosaic-card" data-testid="card-editorial-office" onClick={() => selectDeal('Save on Office 2024')}><img src="/reference/editorial-3.jpg" alt="Bright home office" /><div className="mosaic-label">Save on Office 2024<small>Get a Lifetime License for Less</small></div></article>
-            <article className="mosaic-card" data-testid="card-editorial-getaway" onClick={() => selectDeal('Your Turn to Get Away')}><img src="/reference/editorial-4.jpg" alt="Friends enjoying a getaway" /><div className="mosaic-label">Your Turn to Get Away</div></article>
-            <article className="mosaic-card" data-testid="card-editorial-memories" onClick={() => selectDeal('Preserve Memories')}><img src="/reference/editorial-5.jpg" alt="Vintage cameras" /><div className="mosaic-label">Preserve Memories</div></article>
-            <article className="mosaic-card" data-testid="card-editorial-final" onClick={() => selectDeal('Explore More')}><img src="/reference/editorial-6.jpg" alt="Explore more deals" /></article>
+            <article className="mosaic-card" data-testid="card-editorial-recharge" onClick={() => selectDeal('Recharge This Fall')}><img src="/spa-hero.jpg" alt="Woman enjoying a spa treatment" /><div className="mosaic-label">Recharge This Fall<small>Massage, facials, spas & fitness up to 80% off</small></div></article>
+            <article className="mosaic-card" data-testid="card-editorial-summer" onClick={() => selectDeal('Summerween starts now')}><img src="/clean/lavender.jpg" alt="Summer experience" /><div className="mosaic-label">Summerween starts now<small>Save on spooky fun before Halloween prices rise</small></div></article>
+            <article className="mosaic-card" data-testid="card-editorial-office" onClick={() => selectDeal('Save on Office 2024')}><img src="/clean/salon.jpg" alt="Bright home office" /><div className="mosaic-label">Save on Office 2024<small>Get a Lifetime License for Less</small></div></article>
+            <article className="mosaic-card" data-testid="card-editorial-getaway" onClick={() => selectDeal('Your Turn to Get Away')}><img src="/clean/friends.jpg" alt="Friends enjoying a getaway" /><div className="mosaic-label">Your Turn to Get Away</div></article>
+            <article className="mosaic-card" data-testid="card-editorial-memories" onClick={() => selectDeal('Preserve Memories')}><img src="/clean/cameras.jpg" alt="Vintage cameras" /><div className="mosaic-label">Preserve Memories</div></article>
+            <article className="mosaic-card" data-testid="card-editorial-final" onClick={() => selectDeal('Explore More')}><img src="/clean/group.jpg" alt="Explore more deals" /></article>
           </div>
         </section>
         <section className="gift-section" aria-labelledby="trending-gifts-heading">
@@ -121,7 +121,7 @@ function Home() {
             </div>
             <div className="gift-rail no-scrollbar" data-testid="gift-rail">
               {giftDeals.map((deal) => <article key={deal.id} className="gift-card" data-testid={`card-gift-${deal.id}`} onClick={() => selectDeal(deal.name)}>
-                <div className="gift-image"><img src={deal.image} alt="" /><span className={`gift-badge ${deal.cashback === 'Popular Gift' ? 'popular' : ''}`}>{deal.cashback}</span><button className="gift-heart" onClick={(event) => { event.stopPropagation(); toggleFavorite(deal.id); }} aria-label={`Favorite ${deal.name}`}><Heart size={17} /></button></div>
+                <div className="gift-image"><img src={deal.image} style={{ objectPosition: deal.position }} alt="" /><span className={`gift-badge ${deal.cashback === 'Popular Gift' ? 'popular' : ''}`}>{deal.cashback}</span><button className="gift-heart" onClick={(event) => { event.stopPropagation(); toggleFavorite(deal.id); }} aria-label={`Favorite ${deal.name}`}><Heart size={17} /></button></div>
                 <div className="gift-name">{deal.name}</div>
                 <div className="gift-meta">{deal.meta}</div>
                 <div className="gift-location"><MapPin size={11} fill="currentColor" /> {deal.meta.split(',')[0]} <span>◆ {deal.id === 'gift-oil-change' ? '3.2' : deal.id === 'gift-resort' ? '50.7' : '4.6'} mi</span></div>
