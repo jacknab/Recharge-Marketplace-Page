@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --font-sans: var(--app-font-sans);
+  --font-serif: var(--app-font-serif);
+  --font-mono: var(--app-font-mono);
+}
+
+:root {
+  --background: 40 33% 98%;
+  --foreground: 271 49% 11%;
+  --border: 34 19% 86%;
+  --input: 34 19% 86%;
+  --ring: 155 47% 31%;
+  --card: 40 33% 99%;
+  --card-foreground: 271 49% 11%;
+  --card-border: 34 19% 86%;
+  --primary: 155 47% 31%;
+  --primary-foreground: 40 33% 98%;
+  --secondary: 274 57% 18%;
+  --muted: 33 18% 93%;
+  --muted-foreground: 270 10% 39%;
+  --app-font-sans: 'DM Sans', sans-serif;
+  --app-font-serif: 'Instrument Serif', Georgia, serif;
+  --app-font-mono: 'DM Sans', sans-serif;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 271 49% 11%;
+  --foreground: 40 33% 98%;
+  --border: 271 20% 26%;
+  --input: 271 20% 26%;
+  --ring: 155 47% 48%;
+  --card: 271 40% 16%;
+  --card-foreground: 40 33% 98%;
+  --card-border: 271 20% 26%;
+  --primary: 155 47% 48%;
+  --primary-foreground: 271 49% 11%;
+  --secondary: 274 57% 30%;
+  --muted: 271 24% 20%;
+  --muted-foreground: 271 10% 72%;
+}
+
+@layer base {
+  * { @apply border-border; }
+  html { background: #fbfaf7; }
+  body { @apply font-sans antialiased bg-background text-foreground; margin: 0; }
+  button, input { font: inherit; }
+}
+
+@layer utilities {
+  .font-serif { font-family: var(--app-font-serif); }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { scrollbar-width: none; }
+}
+
+.market-page { min-height: 100dvh; background: #fbfaf7; }
+.market-shell { width: min(100%, 680px); margin: 0 auto; background: #fff; min-height: 100dvh; box-shadow: 0 0 40px rgba(60, 34, 54, .05); }
+.topbar { height: 40px; display: flex; align-items: center; justify-content: center; position: relative; }
+.search-box { width: 226px; height: 25px; border: 1px solid #257345; border-radius: 99px; display: flex; align-items: center; padding: 0 5px 0 10px; color: #2b2a2b; transform: translateX(-112px); }
+.search-box input { border: 0; outline: 0; flex: 1; font-size: 8px; background: transparent; min-width: 0; }
+.search-button { background: #257345; border: 0; color: #fff; width: 17px; height: 17px; border-radius: 50%; display: grid; place-items: center; cursor: pointer; }
+.cart-button { position: absolute; right: 68px; border: 0; background: transparent; color: #21142a; cursor: pointer; padding: 4px; }
+.cart-count { position: absolute; right: -1px; top: -2px; width: 10px; height: 10px; border-radius: 99px; background: #257345; color: white; font-size: 6px; display: grid; place-items: center; }
+.category-bar { height: 23px; display: flex; align-items: center; gap: 18px; overflow-x: auto; padding: 0 31px; border-bottom: 1px solid #e8e2e1; white-space: nowrap; }
+.category-item { border: 0; background: transparent; font-size: 8px; color: #29252a; padding: 0 0 4px; cursor: pointer; display: inline-flex; gap: 4px; align-items: center; position: relative; }
+.category-item.active { color: #257345; font-weight: 700; }
+.category-item.active::after { content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: #257345; }
+.hero { height: 72px; position: relative; overflow: hidden; background: #2b0739; color: #fff; }
+.hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, #2d083e 0%, rgba(45,8,62,.84) 35%, rgba(45,8,62,.05) 76%); pointer-events: none; }
+.hero img { position: absolute; inset: 0 0 0 47.3%; width: 52.7%; height: 100%; object-fit: cover; object-position: center; }
+.hero-copy { position: relative; z-index: 1; padding: 12px 0 0 68px; }
+.hero-title { font: 27px/1 var(--app-font-serif); letter-spacing: -.4px; }
+.hero-subtitle { font-size: 8px; margin-top: 7px; color: #f5eaf7; }
+.hero-pill { position: absolute; z-index: 2; right: 41px; top: 29px; font-size: 7px; padding: 4px 8px; border-radius: 99px; background: #3c9b67; color: white; letter-spacing: .5px; }
+.deals-section { padding: 8px 21px 0 35px; }
+.deals-top { display: flex; justify-content: space-between; align-items: center; }
+.section-heading { font-size: 13px; font-weight: 700; letter-spacing: -.2px; }
+.location-wrap { position: relative; }
+.location-button { border: 0; padding: 0; background: transparent; font-size: 8px; color: #29252a; cursor: pointer; }
+.location-button strong { color: #282024; }
+.location-button span { color: #257345; text-decoration: underline; font-weight: 600; }
+.location-menu { position: absolute; right: 0; top: 17px; z-index: 10; background: #fffdf9; border: 1px solid #ddd1d6; box-shadow: 0 8px 25px rgba(44, 13, 46, .16); border-radius: 6px; padding: 5px; min-width: 118px; }
+.location-menu button { display: block; width: 100%; text-align: left; border: 0; background: transparent; padding: 6px 8px; font-size: 8px; cursor: pointer; border-radius: 4px; }
+.location-menu button:hover { background: #f1e8ee; }
+.deal-rail { display: flex; gap: 8px; overflow-x: auto; padding: 8px 0 1px; scroll-snap-type: x mandatory; }
+.deal-card { min-width: 134px; width: 134px; scroll-snap-align: start; cursor: pointer; }
+.deal-image { height: 76px; position: relative; overflow: hidden; border-radius: 4px; background: #efe6de; }
+.deal-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .25s ease; }
+.deal-card:hover .deal-image img { transform: scale(1.04); }
+.deal-badge { position: absolute; top: 4px; left: 4px; background: #fff8ea; border-radius: 2px; font-size: 6px; padding: 2px 4px; color: #4b1d4c; font-weight: 700; }
+.heart-button { position: absolute; top: 4px; right: 4px; width: 18px; height: 18px; border: 1px solid #ded6d4; border-radius: 50%; background: rgba(255,255,255,.88); color: #6b6062; display: grid; place-items: center; cursor: pointer; padding: 0; }
+.heart-button.loved { color: #9c386e; background: #fff0f7; }
+.deal-name { font-size: 8px; line-height: 1.2; margin-top: 5px; font-weight: 700; min-height: 19px; }
+.deal-meta { font-size: 7px; line-height: 1.2; color: #4d4749; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.deal-rating { color: #242125; font-size: 7px; margin-top: 3px; }
+.deal-price { font-size: 9px; margin-top: 4px; color: #732b72; font-weight: 700; }
+.deal-price del { color: #6d6168; font-size: 7px; font-weight: 400; margin-right: 3px; }
+.deal-save { color: #257345; font-size: 6px; font-weight: 700; margin-left: 3px; }
+.card-feedback { font-size: 8px; color: #257345; padding: 5px 0 0; min-height: 17px; }
+.editorial { padding: 17px 21px 30px 31px; }
+.mosaic { display: grid; grid-template-columns: 1.5fr .73fr .73fr; grid-template-rows: 143px 143px; gap: 6px; }
+.mosaic-card { position: relative; border-radius: 8px; overflow: hidden; cursor: pointer; background: #eee3db; }
+.mosaic-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
+.mosaic-card:hover img { transform: scale(1.045); }
+.mosaic-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 45%, rgba(26, 8, 25, .76)); }
+.mosaic-label { display: none; }
+.mosaic-label small { display: block; font-size: 6px; margin-top: 3px; text-decoration: underline; font-weight: 500; }
+.empty-deals { padding: 25px 10px; text-align: center; font-size: 10px; color: #6b6062; width: 100%; }
+@media (max-width: 540px) {
+  .market-shell { box-shadow: none; }
+  .cart-button { right: 18px; }
+  .category-bar { padding: 0 18px; gap: 16px; }
+  .hero-copy { padding-left: 24px; }
+  .hero-title { font-size: 25px; }
+  .hero-pill { right: 20px; }
+  .deals-section, .editorial { padding-left: 18px; padding-right: 18px; }
+  .deal-card { min-width: 146px; width: 146px; }
+}
