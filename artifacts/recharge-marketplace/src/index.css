@@ -135,6 +135,30 @@
 .mosaic-label { display: none; }
 .mosaic-label small { display: block; font-size: 6px; margin-top: 3px; text-decoration: underline; font-weight: 500; }
 .empty-deals { padding: 25px 10px; text-align: center; font-size: 10px; color: #6b6062; width: 100%; }
+.gift-section { width: min(925px, calc(100% - 48px)); margin: 0 auto; padding: 0 0 62px; }
+.gift-panel { background: #f1f2f6; border-radius: 13px; padding: 12px 12px 13px; box-shadow: inset 0 0 0 1px rgba(55, 41, 65, .025); }
+.gift-heading-row { display: flex; align-items: center; justify-content: space-between; padding: 0 2px 10px; }
+.gift-heading { display: flex; align-items: center; gap: 7px; margin: 0; font-size: 16px; letter-spacing: -.25px; }
+.gift-see-all { display: inline-flex; align-items: center; gap: 3px; border: 0; background: transparent; color: #322933; cursor: pointer; font-size: 11px; font-weight: 700; text-decoration: underline; }
+.gift-rail { display: flex; gap: 8px; overflow-x: auto; padding: 0; scroll-snap-type: x mandatory; }
+.gift-card { min-width: 202px; width: 202px; padding: 6px 6px 8px; scroll-snap-align: start; border-radius: 7px; background: #fff; box-shadow: 0 1px 2px rgba(37, 24, 45, .1); cursor: pointer; }
+.gift-image { height: 108px; position: relative; overflow: hidden; border-radius: 5px; background: #eadfd9; }
+.gift-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .25s ease; }
+.gift-card:hover .gift-image img { transform: scale(1.04); }
+.gift-badge { position: absolute; top: 7px; left: 7px; padding: 3px 6px; border-radius: 3px; background: #e5f4e9; color: #1f5e3c; font-size: 9px; line-height: 1; font-weight: 700; }
+.gift-badge.popular { background: #fff0fb; color: #a82c87; }
+.gift-heart { position: absolute; top: 6px; right: 6px; width: 25px; height: 25px; display: grid; place-items: center; border: 1px solid #d7d8dc; border-radius: 50%; background: rgba(255,255,255,.92); color: #8c9098; cursor: pointer; padding: 0; }
+.gift-name { margin-top: 8px; min-height: 31px; color: #2e2730; font-size: 11px; line-height: 1.35; font-weight: 700; }
+.gift-meta { margin-top: 5px; color: #5c5660; font-size: 9px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.gift-location { display: flex; align-items: center; gap: 3px; margin-top: 5px; color: #4c4650; font-size: 9px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.gift-location span { margin-left: auto; color: #69636b; }
+.gift-rating { display: flex; align-items: center; gap: 3px; margin-top: 6px; color: #e4a42c; font-size: 10px; font-weight: 700; }
+.gift-rating span { color: #554f58; font-weight: 500; }
+.gift-price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px; margin-top: 7px; color: #78717a; font-size: 10px; }
+.gift-price del { color: #78717a; }
+.gift-price strong { color: #218047; font-size: 14px; }
+.gift-price > span { padding: 2px 4px; border-radius: 3px; background: #dff0df; color: #1e804a; font-size: 9px; font-weight: 700; }
+.gift-feedback { padding-top: 5px; }
 @media (max-width: 540px) {
   .market-shell { box-shadow: none; }
   .cart-button { right: 18px; }
@@ -142,6 +166,8 @@
   .hero-copy { padding-left: 24px; }
   .hero-title { font-size: 25px; }
   .hero-code { right: 20px; }
-  .deals-section, .editorial { padding-left: 18px; padding-right: 18px; }
+  .deals-section, .editorial, .gift-section { padding-left: 18px; padding-right: 18px; }
   .deal-card { min-width: 146px; width: 146px; }
+  .gift-card { min-width: 176px; width: 176px; }
+  .gift-image { height: 96px; }
 }

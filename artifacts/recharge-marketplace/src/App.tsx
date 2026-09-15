@@ -4,7 +4,7 @@ import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import NotFound from '@/pages/not-found';
-import { Bell, Gift, Heart, MapPin, Search, ShoppingCart, Sparkles, Star, Tag, Ticket, UserRound, Utensils, Wrench, X } from 'lucide-react';
+import { Bell, ChevronRight, Gift, Heart, MapPin, Search, ShoppingCart, Sparkles, Star, Tag, Ticket, UserRound, Utensils, Wrench, X } from 'lucide-react';
 import {
   Route,
   Switch,
@@ -39,6 +39,13 @@ function Home() {
     { id: 'facial', name: 'PDO Smooth Threads for Skin Rejuvenation', meta: '9695 South Yosemite Street, Lone Tree', rating: '5', reviews: '77', price: '$144', was: '$180', save: '40%', image: '/reference/deal-3.jpg', position: 'center', categories: ['Beauty & Spas'] },
     { id: 'salon', name: 'Spa A² at Westin Riverfront Resort And Residence', meta: '126 Riverfront Lane, Avon', rating: '4.8', reviews: '18', price: '$114', was: '$139', save: '18%', image: '/reference/deal-4.jpg', position: 'center', categories: ['Beauty & Spas', 'Travel'] },
     { id: 'camera', name: 'Sale on Vintage Cameras and Film', meta: 'Five Points, Denver', rating: '4.6', reviews: '53', price: '$61', was: '$82', save: '25%', image: '/reference/editorial-6.jpg', position: 'center', categories: ['Goods', 'Gifts'] },
+  ];
+  const giftDeals = [
+    { id: 'gift-bowling', name: 'Bowling (Shoes included) for Easy Fun with Friends at Lucky Strike', meta: 'East, DENVER', rating: '4.8', reviews: '5,140', price: '$39', was: '$70.49', save: '-45%', cashback: '5% Cashback', image: '/reference/editorial-2.jpg' },
+    { id: 'gift-resort', name: 'Great Wolf Lodge Colorado Springs Water Park Resort', meta: 'Colorado Springs, CO', rating: '4.6', reviews: '2,913', price: '$128.84/night', was: '$198.20', save: '-35%', cashback: '5% Cashback', image: '/reference/editorial-4.jpg' },
+    { id: 'gift-massage', name: 'Couples 50-Minutes Therapy Deep Tissue or Swedish Body Massage', meta: 'West Westminster, Westminster', rating: '4.4', reviews: '188', price: '$160.29', was: '$296', save: '-40%', cashback: 'Popular Gift', image: '/reference/deal-3.jpg' },
+    { id: 'gift-oil-change', name: 'Up to 31% Off Jiffy Lube: 15-Minute Drive-Thru Oil Change', meta: 'Northeast, Denver', rating: '4.4', reviews: '9,864', price: '$39.99', was: '$57.99', save: '-31%', cashback: '5% Cashback', image: '/reference/editorial-3.jpg' },
+    { id: 'gift-spa', name: 'Relax and recharge with a spa day made for gifting', meta: 'Aurora, CO', rating: '4.7', reviews: '1,028', price: '$74', was: '$110', save: '-33%', cashback: 'Popular Gift', image: '/reference/deal-4.jpg' },
   ];
   const filteredDeals = useMemo(() => deals.filter((deal) => {
     const matchesCategory = category === 'All' || deal.categories.includes(category);
@@ -105,6 +112,25 @@ function Home() {
             <article className="mosaic-card" data-testid="card-editorial-memories" onClick={() => selectDeal('Preserve Memories')}><img src="/reference/editorial-5.jpg" alt="Vintage cameras" /><div className="mosaic-label">Preserve Memories</div></article>
             <article className="mosaic-card" data-testid="card-editorial-final" onClick={() => selectDeal('Explore More')}><img src="/reference/editorial-6.jpg" alt="Explore more deals" /></article>
           </div>
+        </section>
+        <section className="gift-section" aria-labelledby="trending-gifts-heading">
+          <div className="gift-panel">
+            <div className="gift-heading-row">
+              <h2 id="trending-gifts-heading" className="gift-heading"><Gift size={16} strokeWidth={1.7} /> Trending gifts</h2>
+              <button className="gift-see-all" onClick={() => setFeedback('Showing all trending gifts')}>See all <ChevronRight size={15} /></button>
+            </div>
+            <div className="gift-rail no-scrollbar" data-testid="gift-rail">
+              {giftDeals.map((deal) => <article key={deal.id} className="gift-card" data-testid={`card-gift-${deal.id}`} onClick={() => selectDeal(deal.name)}>
+                <div className="gift-image"><img src={deal.image} alt="" /><span className={`gift-badge ${deal.cashback === 'Popular Gift' ? 'popular' : ''}`}>{deal.cashback}</span><button className="gift-heart" onClick={(event) => { event.stopPropagation(); toggleFavorite(deal.id); }} aria-label={`Favorite ${deal.name}`}><Heart size={17} /></button></div>
+                <div className="gift-name">{deal.name}</div>
+                <div className="gift-meta">{deal.meta}</div>
+                <div className="gift-location"><MapPin size={11} fill="currentColor" /> {deal.meta.split(',')[0]} <span>◆ {deal.id === 'gift-oil-change' ? '3.2' : deal.id === 'gift-resort' ? '50.7' : '4.6'} mi</span></div>
+                <div className="gift-rating"><Star size={12} fill="currentColor" /> {deal.rating} <span>({deal.reviews})</span></div>
+                <div className="gift-price"><del>{deal.was}</del> <strong>{deal.price}</strong> <span>{deal.save}</span></div>
+              </article>)}
+            </div>
+          </div>
+          <div className="card-feedback gift-feedback" data-testid="gift-feedback">{feedback}</div>
         </section>
       </main>
     </div>
