@@ -1,10 +1,10 @@
-import { type ReactNode, useMemo, useState } from 'react';
+import { type ReactNode, useMemo, useRef, useState } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import NotFound from '@/pages/not-found';
-import { Bell, ChevronRight, Gift, Heart, MapPin, Search, ShoppingCart, Sparkles, Star, Tag, Ticket, UserRound, Utensils, Wrench, X } from 'lucide-react';
+import { Bell, ChevronLeft, ChevronRight, Gift, Heart, MapPin, MessageCircle, Search, ShoppingCart, Sparkles, Star, Tag, Ticket, UserRound, Utensils, Wrench, X } from 'lucide-react';
 import {
   Route,
   Switch,
@@ -43,6 +43,15 @@ function Home() {
     { id: 'gift-oil-change', name: 'Up to 31% Off Jiffy Lube: 15-Minute Drive-Thru Oil Change', meta: 'Northeast, Denver', rating: '4.4', reviews: '9,864', price: '$39.99', was: '$57.99', save: '-31%', cashback: '5% Cashback', image: '/clean/lavender.jpg', position: 'center' },
     { id: 'gift-spa', name: 'Relax and recharge with a spa day made for gifting', meta: 'Aurora, CO', rating: '4.7', reviews: '1,028', price: '$74', was: '$110', save: '-33%', cashback: 'Popular Gift', image: '/clean/salon.jpg', position: 'center' },
   ];
+  const featuredDeals = [
+    { id: 'featured-vitality', brand: 'Clinical Care 365', name: 'Unlock Your Natural Vitality up to 200 Units of Jeuveau', meta: '10375 Park Meadows Drive, Lone Tree', rating: '4.4', reviews: '268', price: '$121.50', was: '$280', save: '-57%', image: '/clean/friends.jpg', position: 'center' },
+    { id: 'featured-botox', brand: 'Clinical Care 365', name: 'The ONLY Genuine BOTOX® 20, 40, 60, 100 or 200 Units', meta: '10375 Park Meadows Drive, Lone Tree', rating: '4.4', reviews: '268', price: '$143.10', was: '$280', save: '-49%', image: '/clean/massage.jpg', position: 'center' },
+    { id: 'featured-morpheus', brand: 'Clinical Care 365', name: 'The Real Morpheus8, HIFU and PRP packages at 365 Clinical Care', meta: '10375 Park Meadows Drive, Lone Tree', rating: '4.4', reviews: '267', price: '$314.99', was: '$750', save: '-58%', image: '/spa-hero.jpg', position: '70% 67%' },
+    { id: 'featured-sharper', brand: 'Sharper Image', name: 'EXCLUSIVE 25% Off Sitewide w/ Sharper Image Promo Code', meta: 'Online deal', rating: '4.6', reviews: '1,204', price: '$74.99', was: '$99.99', save: '-25%', image: '/clean/salon.jpg', position: 'center' },
+    { id: 'featured-wellness', brand: 'Recharge Wellness', name: 'Personalized facial and recovery treatments for less', meta: 'Aurora, CO', rating: '4.7', reviews: '412', price: '$89', was: '$135', save: '-34%', image: '/clean/nails.jpg', position: 'center' },
+  ];
+  const featuredRailRef = useRef<HTMLDivElement>(null);
+  const scrollFeaturedDeals = (direction: number) => featuredRailRef.current?.scrollBy({ left: direction * 235, behavior: 'smooth' });
   const filteredDeals = useMemo(() => deals.filter((deal) => {
     const matchesCategory = category === 'All' || deal.categories.includes(category);
     const haystack = `${deal.name} ${deal.meta} ${deal.categories.join(' ')}`.toLowerCase();
@@ -125,6 +134,27 @@ function Home() {
             </div>
           </div>
           <div className="card-feedback gift-feedback" data-testid="gift-feedback">{feedback}</div>
+        </section>
+        <section className="featured-section" aria-labelledby="featured-deals-heading">
+          <div className="featured-panel">
+            <div className="featured-heading-row">
+              <h2 id="featured-deals-heading" className="featured-heading"><MessageCircle size={16} strokeWidth={1.7} /> Featured deals</h2>
+            </div>
+            <div className="featured-rail-wrap">
+              <button className="featured-arrow featured-arrow-left" onClick={() => scrollFeaturedDeals(-1)} aria-label="Previous featured deals"><ChevronLeft size={17} /></button>
+              <div className="featured-rail no-scrollbar" ref={featuredRailRef} data-testid="featured-rail">
+                {featuredDeals.map((deal) => <article key={deal.id} className="featured-card" data-testid={`card-featured-${deal.id}`} onClick={() => selectDeal(deal.name)}>
+                  <div className="featured-image"><img src={deal.image} style={{ objectPosition: deal.position }} alt="" /><span className="featured-badge">Sponsored</span><button className="featured-heart" onClick={(event) => { event.stopPropagation(); toggleFavorite(deal.id); }} aria-label={`Favorite ${deal.name}`}><Heart size={18} /></button></div>
+                  <div className="featured-source">{deal.brand}</div>
+                  <div className="featured-name">{deal.name}</div>
+                  <div className="featured-meta">{deal.meta}</div>
+                  <div className="featured-rating"><Star size={12} fill="currentColor" /> {deal.rating} <span>({deal.reviews})</span><span className="featured-distance">◆ 13.3 mi</span></div>
+                  <div className="featured-price"><del>{deal.was}</del> <strong>{deal.price}</strong> <span>{deal.save}</span><em>Limited time</em></div>
+                </article>)}
+              </div>
+              <button className="featured-arrow featured-arrow-right" onClick={() => scrollFeaturedDeals(1)} aria-label="Next featured deals"><ChevronRight size={17} /></button>
+            </div>
+          </div>
         </section>
       </main>
     </div>
