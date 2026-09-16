@@ -63,14 +63,12 @@ function Home() {
         <header>
           <div className="topbar">
             <div className="topbar-inner">
-              <div className="brand-logo" aria-label="Groupon home">GROUPON</div>
+              <div className="brand-logo" aria-label="Certxa home">CERTXA</div>
               <label className="search-box" data-testid="search-box">
                 <input data-testid="input-search" type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search Spa" aria-label="Search deals" />
                 {query ? <button className="search-button" data-testid="button-clear-search" onClick={() => setQuery('')} aria-label="Clear search"><X size={12} /></button> : <span className="search-button" aria-hidden="true"><Search size={13} /></span>}
               </label>
               <div className="top-actions">
-                <button className="utility-link" onClick={() => setFeedback('Groupon App')}><span className="utility-phone">▣</span> App</button>
-                <button className="utility-link" onClick={() => setFeedback('Sell on Groupon')}>▣&nbsp; Sell on Groupon</button>
                 <button className="icon-action" onClick={() => setFeedback('Your saved deals are waiting here')} aria-label="Saved deals"><Heart size={18} strokeWidth={1.6} /><span className="cart-count">{favorites.length}</span></button>
                 <button className="icon-action" onClick={() => setFeedback('No new notifications')} aria-label="Notifications"><Bell size={18} strokeWidth={1.6} /></button>
                 <button className="icon-action" data-testid="button-cart" onClick={() => setFeedback('Your cart is waiting here')} aria-label="Cart"><ShoppingCart size={19} strokeWidth={1.6} /><span className="cart-count cart-count-cart">{favorites.length || 1}</span></button>
