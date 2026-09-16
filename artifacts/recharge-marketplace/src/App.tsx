@@ -23,22 +23,18 @@ function Home() {
   const [feedback, setFeedback] = useState('');
 
   const categories = [
-    { name: 'Fall Recharge', key: 'All', icon: Sparkles },
-    { name: 'Beauty & Spas', key: 'Beauty & Spas', icon: Sparkles },
-    { name: 'Things To Do', key: 'Things To Do', icon: Ticket },
-    { name: 'Auto & Home', key: 'Auto & Home', icon: Wrench },
-    { name: 'Food & Drink', key: 'Food & Drink', icon: Utensils },
-    { name: 'Gifts', key: 'Gifts', icon: Gift },
-    { name: 'Local', key: 'Local', icon: UserRound },
-    { name: 'Travel', key: 'Travel', icon: MapPin },
-    { name: 'Goods', key: 'Goods', icon: Tag },
+    { name: 'Hair', key: 'All', icon: UserRound },
+    { name: 'Nails', key: 'Nails', icon: Sparkles },
+    { name: 'Skin', key: 'Skin', icon: Sparkles },
+    { name: 'Barber', key: 'Barber', icon: UserRound },
+    { name: 'Wellness', key: 'Wellness', icon: Heart },
   ];
   const deals = [
-    { id: 'nails', name: 'Gel and Acrylic Nail Services', meta: 'Willow Park, Aurora', rating: '4.3', reviews: '101', price: '$27.20', was: '$34', save: '32%', image: '/clean/nails.jpg', position: 'center', categories: ['Beauty & Spas'] },
-    { id: 'massage', name: 'Full Body Massage at Denver School of Massage', meta: '7500 East Arapahoe Road, Centennial', rating: '4.7', reviews: '220', price: '$27.09', was: '$35', save: '26%', image: '/clean/massage.jpg', position: 'center', categories: ['Beauty & Spas'] },
-    { id: 'facial', name: 'PDO Smooth Threads for Skin Rejuvenation', meta: '9695 South Yosemite Street, Lone Tree', rating: '5', reviews: '77', price: '$144', was: '$180', save: '40%', image: '/spa-hero.jpg', position: '75% 70%', categories: ['Beauty & Spas'] },
-    { id: 'salon', name: 'Spa A² at Westin Riverfront Resort And Residence', meta: '126 Riverfront Lane, Avon', rating: '4.8', reviews: '18', price: '$114', was: '$139', save: '18%', image: '/clean/salon.jpg', position: 'center', categories: ['Beauty & Spas', 'Travel'] },
-    { id: 'camera', name: 'Sale on Vintage Cameras and Film', meta: 'Five Points, Denver', rating: '4.6', reviews: '53', price: '$61', was: '$82', save: '25%', image: '/clean/cameras.jpg', position: 'center', categories: ['Goods', 'Gifts'] },
+    { id: 'nails', name: 'Gel and Acrylic Nail Services', meta: 'Willow Park, Aurora', rating: '4.3', reviews: '101', price: '$27.20', was: '$34', save: '32%', image: '/clean/nails.jpg', position: 'center', categories: ['Nails'] },
+    { id: 'massage', name: 'Full Body Massage at Denver School of Massage', meta: '7500 East Arapahoe Road, Centennial', rating: '4.7', reviews: '220', price: '$27.09', was: '$35', save: '26%', image: '/clean/massage.jpg', position: 'center', categories: ['Wellness'] },
+    { id: 'facial', name: 'PDO Smooth Threads for Skin Rejuvenation', meta: '9695 South Yosemite Street, Lone Tree', rating: '5', reviews: '77', price: '$144', was: '$180', save: '40%', image: '/spa-hero.jpg', position: '75% 70%', categories: ['Skin'] },
+    { id: 'salon', name: 'Spa A² at Westin Riverfront Resort And Residence', meta: '126 Riverfront Lane, Avon', rating: '4.8', reviews: '18', price: '$114', was: '$139', save: '18%', image: '/clean/salon.jpg', position: 'center', categories: ['Wellness'] },
+    { id: 'camera', name: 'Sale on Vintage Cameras and Film', meta: 'Five Points, Denver', rating: '4.6', reviews: '53', price: '$61', was: '$82', save: '25%', image: '/clean/cameras.jpg', position: 'center', categories: ['Hair'] },
   ];
   const giftDeals = [
     { id: 'gift-bowling', name: 'Bowling (Shoes included) for Easy Fun with Friends at Lucky Strike', meta: 'East, DENVER', rating: '4.8', reviews: '5,140', price: '$39', was: '$70.49', save: '-45%', cashback: '5% Cashback', image: '/clean/group.jpg', position: 'center' },
