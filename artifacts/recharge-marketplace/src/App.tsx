@@ -96,7 +96,7 @@ function Home() {
           <div className="deal-rail no-scrollbar" data-testid="deal-rail">
               {filteredDeals.length ? filteredDeals.map((deal) => <article key={deal.id} className="deal-card" data-testid={`card-deal-${deal.id}`} onClick={() => selectDeal(deal.name)}>
               <div className="deal-image"><img src={deal.image} alt="" style={{ objectPosition: deal.position }} /><span className="deal-badge">▣ Popular Gift</span><button className={`heart-button ${favorites.includes(deal.id) ? 'loved' : ''}`} data-testid={`button-favorite-${deal.id}`} onClick={(event) => { event.stopPropagation(); toggleFavorite(deal.id); }} aria-label={`Favorite ${deal.name}`}><Heart size={11} fill={favorites.includes(deal.id) ? 'currentColor' : 'none'} /></button></div>
-              <div className="deal-name">{deal.name}</div><div className="deal-meta">{deal.meta}</div><div className="deal-rating"><Star size={8} fill="currentColor" /> {deal.rating} ({deal.reviews})</div><div className="deal-price"><del>{deal.was}</del>{deal.price}<span className="deal-save">with code RELAX</span></div>
+               <div className="deal-name">{deal.name}</div><div className="deal-meta">{deal.meta}</div><div className="deal-rating"><Star size={8} fill="currentColor" /> {deal.rating} ({deal.reviews})</div><div className="deal-price"><del>{deal.was}</del>{deal.price}</div>
             </article>) : <div className="empty-deals" data-testid="empty-deals">No deals match your search. Try a different category.</div>}
           </div>
           <div className="card-feedback" data-testid="status-feedback">{feedback}</div>
