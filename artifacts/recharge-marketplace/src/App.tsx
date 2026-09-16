@@ -72,9 +72,9 @@ function Home() {
         <header>
           <div className="topbar">
             <div className="topbar-inner">
-              <div className="brand-logo" aria-label="Certxa home">CERTXA</div>
+              <div className="brand-logo" aria-label="Certxa home">Certxa</div>
               <label className="search-box" data-testid="search-box">
-                <input data-testid="input-search" type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search Spa" aria-label="Search deals" />
+                <input data-testid="input-search" type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search beauty, wellness, and more" aria-label="Search deals" />
                 {query ? <button className="search-button" data-testid="button-clear-search" onClick={() => setQuery('')} aria-label="Clear search"><X size={12} /></button> : <span className="search-button" aria-hidden="true"><Search size={13} /></span>}
               </label>
               <div className="top-actions">
@@ -90,7 +90,7 @@ function Home() {
           </nav>
         </header>
         <section className="hero" aria-label="Promotion">
-          <img src="/reference/hero.jpg" alt="Relaxing facial treatment" />
+          <img src="/spa-hero.jpg" alt="Relaxing facial treatment" />
           <div className="hero-copy"><div className="hero-title">Recharge your Glow</div><div className="hero-subtitle">Extra savings on facial care — this week only!</div></div>
           <div className="hero-code">USE CODE: <span>RELAX</span></div>
         </section>
