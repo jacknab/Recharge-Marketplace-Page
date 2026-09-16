@@ -50,7 +50,11 @@ function Home() {
     { id: 'featured-sharper', brand: 'Sharper Image', name: 'EXCLUSIVE 25% Off Sitewide w/ Sharper Image Promo Code', meta: 'Online deal', rating: '4.6', reviews: '1,204', price: '$74.99', was: '$99.99', save: '-25%', image: '/clean/salon.jpg', position: 'center' },
     { id: 'featured-wellness', brand: 'Recharge Wellness', name: 'Personalized facial and recovery treatments for less', meta: 'Aurora, CO', rating: '4.7', reviews: '412', price: '$89', was: '$135', save: '-34%', image: '/clean/nails.jpg', position: 'center' },
   ];
+  const dealRailRef = useRef<HTMLDivElement>(null);
+  const giftRailRef = useRef<HTMLDivElement>(null);
   const featuredRailRef = useRef<HTMLDivElement>(null);
+  const scrollDealRail = (direction: number) => dealRailRef.current?.scrollBy({ left: direction * 230, behavior: 'smooth' });
+  const scrollGiftRail = (direction: number) => giftRailRef.current?.scrollBy({ left: direction * 230, behavior: 'smooth' });
   const scrollFeaturedDeals = (direction: number) => featuredRailRef.current?.scrollBy({ left: direction * 235, behavior: 'smooth' });
   const filteredDeals = useMemo(() => deals.filter((deal) => {
     const matchesCategory = category === 'All' || deal.categories.includes(category);
@@ -98,11 +102,15 @@ function Home() {
               {showLocations && <div className="location-menu" data-testid="menu-locations">{['Aurora, CO', 'Denver, CO', 'Boulder, CO'].map((place) => <button key={place} data-testid={`button-location-${place.split(',')[0].toLowerCase()}`} onClick={() => { setLocation(place); setShowLocations(false); }}>{place}</button>)}</div>}
             </div>
           </div>
-          <div className="deal-rail no-scrollbar" data-testid="deal-rail">
+          <div className="deal-rail-wrap">
+            <button className="rail-arrow rail-arrow-left" onClick={() => scrollDealRail(-1)} aria-label="Previous trending deals"><ChevronLeft size={17} /></button>
+            <div className="deal-rail no-scrollbar" ref={dealRailRef} data-testid="deal-rail">
               {filteredDeals.length ? filteredDeals.map((deal) => <article key={deal.id} className="deal-card" data-testid={`card-deal-${deal.id}`} onClick={() => selectDeal(deal.name)}>
               <div className="deal-image"><img src={deal.image} alt="" style={{ objectPosition: deal.position }} /><span className="deal-badge">▣ Popular Gift</span><button className={`heart-button ${favorites.includes(deal.id) ? 'loved' : ''}`} data-testid={`button-favorite-${deal.id}`} onClick={(event) => { event.stopPropagation(); toggleFavorite(deal.id); }} aria-label={`Favorite ${deal.name}`}><Heart size={11} fill={favorites.includes(deal.id) ? 'currentColor' : 'none'} /></button></div>
                <div className="deal-name">{deal.name}</div><div className="deal-meta">{deal.meta}</div><div className="deal-rating"><Star size={8} fill="currentColor" /> {deal.rating} ({deal.reviews})</div><div className="deal-price"><del>{deal.was}</del>{deal.price}</div>
             </article>) : <div className="empty-deals" data-testid="empty-deals">No deals match your search. Try a different category.</div>}
+            </div>
+            <button className="rail-arrow rail-arrow-right" onClick={() => scrollDealRail(1)} aria-label="Next trending deals"><ChevronRight size={17} /></button>
           </div>
           <div className="card-feedback" data-testid="status-feedback">{feedback}</div>
         </section>
@@ -122,7 +130,9 @@ function Home() {
               <h2 id="trending-gifts-heading" className="gift-heading"><Gift size={16} strokeWidth={1.7} /> Trending gifts</h2>
               <button className="gift-see-all" onClick={() => setFeedback('Showing all trending gifts')}>See all <ChevronRight size={15} /></button>
             </div>
-            <div className="gift-rail no-scrollbar" data-testid="gift-rail">
+            <div className="gift-rail-wrap">
+              <button className="rail-arrow rail-arrow-left" onClick={() => scrollGiftRail(-1)} aria-label="Previous trending gifts"><ChevronLeft size={17} /></button>
+              <div className="gift-rail no-scrollbar" ref={giftRailRef} data-testid="gift-rail">
               {giftDeals.map((deal) => <article key={deal.id} className="gift-card" data-testid={`card-gift-${deal.id}`} onClick={() => selectDeal(deal.name)}>
                 <div className="gift-image"><img src={deal.image} style={{ objectPosition: deal.position }} alt="" /><span className={`gift-badge ${deal.cashback === 'Popular Gift' ? 'popular' : ''}`}>{deal.cashback}</span><button className="gift-heart" onClick={(event) => { event.stopPropagation(); toggleFavorite(deal.id); }} aria-label={`Favorite ${deal.name}`}><Heart size={17} /></button></div>
                 <div className="gift-name">{deal.name}</div>
@@ -131,6 +141,8 @@ function Home() {
                 <div className="gift-rating"><Star size={12} fill="currentColor" /> {deal.rating} <span>({deal.reviews})</span></div>
                 <div className="gift-price"><del>{deal.was}</del> <strong>{deal.price}</strong> <span>{deal.save}</span></div>
               </article>)}
+              </div>
+              <button className="rail-arrow rail-arrow-right" onClick={() => scrollGiftRail(1)} aria-label="Next trending gifts"><ChevronRight size={17} /></button>
             </div>
           </div>
           <div className="card-feedback gift-feedback" data-testid="gift-feedback">{feedback}</div>
