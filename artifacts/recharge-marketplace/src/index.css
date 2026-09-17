@@ -112,7 +112,7 @@
 .location-menu button { display: block; width: 100%; text-align: left; border: 0; background: transparent; padding: 6px 8px; font-size: 8px; cursor: pointer; border-radius: 4px; }
 .location-menu button:hover { background: #f1e8ee; }
 .deal-rail-wrap, .gift-rail-wrap { position: relative; }
-.deal-rail { display: flex; gap: 14px; overflow-x: auto; padding: 14px 0 3px; scroll-behavior: smooth; scroll-snap-type: x mandatory; }
+.deal-rail { display: flex; gap: 14px; overflow-x: auto; padding: 14px 0 3px; scroll-behavior: smooth; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; touch-action: pan-x; }
 .deal-card { min-width: 200px; width: 200px; scroll-snap-align: start; cursor: pointer; }
 .deal-image { height: 112px; position: relative; overflow: hidden; border-radius: 5px; background: #efe6de; }
 .deal-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .25s ease; }
@@ -141,7 +141,7 @@
 .gift-heading-row { display: flex; align-items: center; justify-content: space-between; padding: 0 2px 10px; }
 .gift-heading { display: flex; align-items: center; gap: 7px; margin: 0; font-size: 18px; letter-spacing: -.3px; }
 .gift-see-all { display: inline-flex; align-items: center; gap: 3px; border: 0; background: transparent; color: #322933; cursor: pointer; font-size: 11px; font-weight: 700; text-decoration: underline; }
-.gift-rail { display: flex; gap: 8px; overflow-x: auto; padding: 0; scroll-behavior: smooth; scroll-snap-type: x mandatory; }
+.gift-rail { display: flex; gap: 8px; overflow-x: auto; padding: 0; scroll-behavior: smooth; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; touch-action: pan-x; }
 .gift-card { min-width: 202px; width: 202px; padding: 6px 6px 8px; scroll-snap-align: start; border-radius: 7px; background: #fff; box-shadow: 0 1px 2px rgba(37, 24, 45, .1); cursor: pointer; }
 .gift-image { height: 108px; position: relative; overflow: hidden; border-radius: 5px; background: #eadfd9; }
 .gift-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .25s ease; }
@@ -168,7 +168,7 @@
 .featured-heading-row { padding: 0 2px 11px; }
 .featured-heading { display: flex; align-items: center; gap: 7px; margin: 0; font-size: 16px; letter-spacing: -.25px; }
 .featured-rail-wrap { position: relative; }
-.featured-rail { display: flex; gap: 8px; overflow-x: auto; padding: 0 1px 2px; scroll-behavior: smooth; scroll-snap-type: x mandatory; }
+.featured-rail { display: flex; gap: 8px; overflow-x: auto; padding: 0 1px 2px; scroll-behavior: smooth; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; touch-action: pan-x; }
 .featured-card { min-width: 215px; width: 215px; padding: 6px 6px 8px; scroll-snap-align: start; border-radius: 7px; background: #fff; box-shadow: 0 1px 2px rgba(37, 24, 45, .1); cursor: pointer; }
 .featured-image { height: 126px; position: relative; overflow: hidden; border-radius: 5px; background: #eadfd9; }
 .featured-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .25s ease; }
@@ -206,6 +206,9 @@
   .deals-section, .editorial, .gift-section, .featured-section { width: calc(100% - 24px); padding-left: 12px; padding-right: 12px; }
   .deals-section { margin-top: -6px; }
   .section-heading { font-size: 19px; }
+  .editorial { padding-top: 28px; padding-bottom: 24px; }
+  .mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: 190px 158px 158px 140px; gap: 6px; }
+  .mosaic-card:first-child, .mosaic-card:last-child { grid-column: 1 / -1; }
   .mosaic-label { padding: 16px 10px 10px; font-size: 13px; }
   .mosaic-label small { font-size: 8px; }
   .deal-card { min-width: 146px; width: 146px; }
