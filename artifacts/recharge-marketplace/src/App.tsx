@@ -92,7 +92,6 @@ function Home() {
         <section className="hero" aria-label="Promotion">
           <img src="/spa-hero.jpg" alt="Relaxing facial treatment" />
           <div className="hero-copy"><div className="hero-title">Recharge your Glow</div><div className="hero-subtitle">Extra savings on facial care — this week only!</div></div>
-          <div className="hero-code">USE CODE: <span>RELAX</span></div>
         </section>
         <section className="deals-section">
           <div className="deals-top">
