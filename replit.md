@@ -1,6 +1,6 @@
-# [Project name]
+# Recharge Marketplace
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A beauty deals marketplace that helps people discover limited-time offers first, then browse and compare nearby nail salons.
 
 ## Run & Operate
 
@@ -22,15 +22,24 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/recharge-marketplace/src/App.tsx` — marketplace homepage, deal rails, location selector, and salon directory content
+- `artifacts/recharge-marketplace/src/index.css` — marketplace typography, colors, responsive layout, and card treatments
+- `artifacts/recharge-marketplace/public/` — homepage imagery used by the deal and salon cards
+- `artifacts/api-server/` — shared Express API service
+- `lib/api-spec/`, `lib/api-zod/`, and `lib/api-client-react/` — API contract and generated client packages
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- The homepage is a static React/Vite experience with local sample content and client-side interactions.
+- The deals rail is intentionally the first content module after the promotional hero; salon discovery follows it.
+- Trending gifts and Featured Deals are presented as nail-salon discovery rails rather than generic marketplace content.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+- Browse limited-time beauty and wellness offers.
+- Filter deals by service category and search by keyword.
+- Change the active location between Aurora, Denver, and Boulder.
+- Save offers and salon listings locally for the current session.
 
 ## User preferences
 

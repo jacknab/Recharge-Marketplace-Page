@@ -24,19 +24,19 @@
 }
 
 :root {
-  --background: 40 33% 98%;
-  --foreground: 271 49% 11%;
-  --border: 34 19% 86%;
-  --input: 34 19% 86%;
-  --ring: 155 47% 31%;
-  --card: 40 33% 99%;
-  --card-foreground: 271 49% 11%;
-  --card-border: 34 19% 86%;
-  --primary: 155 47% 31%;
-  --primary-foreground: 40 33% 98%;
-  --secondary: 274 57% 18%;
-  --muted: 33 18% 93%;
-  --muted-foreground: 270 10% 39%;
+  --background: 36 42% 97%;
+  --foreground: 278 30% 16%;
+  --border: 30 20% 86%;
+  --input: 30 20% 86%;
+  --ring: 164 43% 30%;
+  --card: 39 47% 99%;
+  --card-foreground: 278 30% 16%;
+  --card-border: 30 20% 86%;
+  --primary: 164 43% 30%;
+  --primary-foreground: 39 47% 99%;
+  --secondary: 278 31% 24%;
+  --muted: 34 25% 92%;
+  --muted-foreground: 278 11% 43%;
   --app-font-sans: 'DM Sans', sans-serif;
   --app-font-serif: 'Instrument Serif', Georgia, serif;
   --app-font-mono: 'DM Sans', sans-serif;
@@ -44,19 +44,19 @@
 }
 
 .dark {
-  --background: 271 49% 11%;
-  --foreground: 40 33% 98%;
-  --border: 271 20% 26%;
-  --input: 271 20% 26%;
-  --ring: 155 47% 48%;
-  --card: 271 40% 16%;
-  --card-foreground: 40 33% 98%;
-  --card-border: 271 20% 26%;
-  --primary: 155 47% 48%;
-  --primary-foreground: 271 49% 11%;
-  --secondary: 274 57% 30%;
-  --muted: 271 24% 20%;
-  --muted-foreground: 271 10% 72%;
+  --background: 278 30% 13%;
+  --foreground: 39 47% 99%;
+  --border: 278 20% 27%;
+  --input: 278 20% 27%;
+  --ring: 164 43% 48%;
+  --card: 278 25% 17%;
+  --card-foreground: 39 47% 99%;
+  --card-border: 278 20% 27%;
+  --primary: 164 43% 48%;
+  --primary-foreground: 278 30% 13%;
+  --secondary: 278 31% 36%;
+  --muted: 278 18% 22%;
+  --muted-foreground: 278 10% 73%;
 }
 
 @layer base {
@@ -216,4 +216,210 @@
   .gift-image { height: 96px; }
   .featured-card { min-width: 184px; width: 184px; }
   .featured-image { height: 110px; }
+}
+
+/* Marketplace-first refresh: a warm editorial shell with clear service discovery bands. */
+.market-page {
+  background:
+    radial-gradient(circle at 8% 4%, rgba(228, 183, 132, .14), transparent 28rem),
+    #f7f3ed;
+  color: #2d2430;
+}
+.market-shell {
+  max-width: 1440px;
+  margin: 0 auto;
+  background: #fbfaf7;
+  box-shadow: 0 0 55px rgba(58, 36, 47, .08);
+}
+.topbar {
+  height: 78px;
+  background: rgba(251, 250, 247, .96);
+  border-bottom-color: #ebe3dc;
+}
+.topbar-inner { width: min(1180px, calc(100% - 72px)); gap: 34px; }
+.brand-logo {
+  color: #2d2430;
+  font: 400 30px/1 var(--app-font-serif);
+  letter-spacing: -.8px;
+}
+.brand-logo::after {
+  content: 'marketplace';
+  display: block;
+  margin-top: 3px;
+  color: #8b6c62;
+  font: 700 8px/1 var(--app-font-sans);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.search-box {
+  width: min(450px, 42vw);
+  height: 44px;
+  border: 1px solid #cdbcb0;
+  background: #fffdf9;
+  box-shadow: 0 4px 16px rgba(60, 34, 54, .05);
+}
+.search-box:focus-within { border-color: #2f745f; box-shadow: 0 0 0 3px rgba(47, 116, 95, .12); }
+.search-button { background: #2f745f; }
+.top-actions { gap: 14px; color: #392e36; }
+.profile-button { background: #eee8e1; }
+.cart-count { background: #d66a57; }
+.category-bar {
+  height: 58px;
+  justify-content: flex-start;
+  gap: 31px;
+  padding-left: max(calc((100% - 1180px) / 2), 36px);
+  background: #fbfaf7;
+  border-bottom-color: #ebe3dc;
+}
+.category-item { padding-bottom: 17px; color: #61535d; }
+.category-item.active { color: #2f745f; }
+.category-item.active::after { background: #d66a57; height: 3px; }
+.hero {
+  height: 270px;
+  background: #3a203b;
+}
+.hero::before {
+  content: 'LIMITED-TIME BEAUTY DEALS';
+  position: absolute;
+  z-index: 1;
+  top: 32px;
+  left: max(calc((100% - 1180px) / 2), 36px);
+  color: #f2c8a7;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.2px;
+}
+.hero::after {
+  background: linear-gradient(90deg, #341b38 0%, rgba(52, 27, 56, .96) 34%, rgba(52, 27, 56, .32) 75%, rgba(52, 27, 56, .05) 100%);
+}
+.hero img { left: 43%; width: 57%; object-position: 70% 54%; filter: saturate(.82); }
+.hero-copy {
+  padding: 82px 0 0 max(calc((100% - 1180px) / 2), 36px);
+}
+.hero-title { font-size: clamp(46px, 5.2vw, 70px); letter-spacing: -1.8px; }
+.hero-subtitle { max-width: 360px; margin-top: 16px; color: #f7e9e0; font-size: 15px; line-height: 1.5; }
+.deals-section {
+  width: min(1180px, calc(100% - 72px));
+  margin: -28px auto 0;
+  padding: 28px 28px 14px;
+  border: 1px solid #e7dbd2;
+  border-radius: 20px;
+  background: #fffdf9;
+  box-shadow: 0 15px 35px rgba(63, 35, 50, .1);
+}
+.deals-top { align-items: flex-start; }
+.section-heading {
+  margin: 0;
+  color: #2d2430;
+  font-size: 25px;
+  letter-spacing: -.6px;
+}
+.section-heading::before,
+.gift-heading::before,
+.featured-heading::before {
+  content: 'SHOP THE DROP';
+  display: block;
+  margin-bottom: 7px;
+  color: #d66a57;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+.section-support {
+  max-width: 420px;
+  margin: 6px 0 0;
+  color: #786a70;
+  font-size: 11px;
+  line-height: 1.4;
+}
+.location-button { color: #574a53; }
+.location-button span { color: #2f745f; }
+.deal-rail { gap: 17px; padding-top: 18px; }
+.deal-card {
+  min-width: 215px;
+  width: 215px;
+  padding-bottom: 4px;
+}
+.deal-image { height: 128px; border-radius: 8px; }
+.deal-badge {
+  background: #fff1e9;
+  color: #9d493f;
+  border-radius: 99px;
+  font-size: 9px;
+  letter-spacing: .2px;
+}
+.heart-button { border-color: #e2d6d0; }
+.deal-name { margin-top: 9px; font-size: 12px; }
+.deal-meta { color: #766972; }
+.deal-price { color: #2f745f; }
+.deals-section .card-feedback { color: #d66a57; }
+.editorial {
+  width: min(1180px, calc(100% - 72px));
+  padding: 54px 0 43px;
+}
+.mosaic { gap: 10px; grid-template-rows: 245px 205px; }
+.mosaic-card { border-radius: 12px; }
+.mosaic-card::after { background: linear-gradient(180deg, transparent 35%, rgba(31, 15, 32, .8)); }
+.mosaic-label { padding: 25px 18px 17px; font-size: 19px; }
+.mosaic-label small { font-size: 10px; }
+.gift-section, .featured-section { width: min(1180px, calc(100% - 72px)); }
+.gift-section { padding-bottom: 36px; }
+.gift-panel, .featured-panel {
+  border-color: #e3dcd8;
+  border-radius: 20px;
+  background: #f0f1ed;
+  box-shadow: 0 10px 24px rgba(43, 37, 38, .05);
+}
+.gift-panel { padding: 23px 23px 18px; }
+.gift-heading-row { align-items: flex-start; }
+.gift-heading, .featured-heading { display: block; font-size: 22px; color: #302832; }
+.gift-heading svg, .featured-heading svg { margin-right: 7px; vertical-align: -2px; }
+.gift-heading::before, .featured-heading::before {
+  content: 'DISCOVER LOCAL SALONS';
+  color: #2f745f;
+}
+.featured-heading::before { content: 'PROVIDERS TO KNOW'; }
+.section-note {
+  margin: 3px 0 0;
+  color: #706970;
+  font-size: 11px;
+  line-height: 1.4;
+}
+.gift-see-all { color: #2f745f; }
+.gift-card, .featured-card {
+  border: 1px solid #ebe7e4;
+  box-shadow: 0 3px 9px rgba(42, 34, 43, .08);
+}
+.gift-card:hover, .featured-card:hover { transform: translateY(-2px); }
+.gift-image { height: 118px; }
+.gift-badge { background: #e2eee7; color: #27674f; }
+.gift-badge.popular { background: #fff0e9; color: #a04b42; }
+.gift-price strong, .featured-price strong { color: #2f745f; }
+.featured-section { padding-bottom: 62px; }
+.featured-panel { padding: 23px 23px 18px; background: #f4eee9; }
+.featured-heading-row { padding-bottom: 4px; }
+.featured-image { height: 132px; }
+.featured-badge { background: #fff4e7; color: #915847; }
+.featured-source { color: #2f745f; font-weight: 700; }
+.featured-price em { color: #d66a57; }
+.rail-arrow, .featured-arrow { border-color: #d8cbc3; color: #4c5e58; }
+
+@media (max-width: 760px) {
+  .topbar-inner { width: calc(100% - 36px); gap: 16px; }
+  .brand-logo { font-size: 25px; }
+  .category-bar { padding-left: 18px; }
+  .hero { height: 225px; }
+  .hero::before { left: 24px; top: 25px; }
+  .hero-copy { padding: 69px 24px 0; }
+  .hero-title { font-size: 42px; }
+  .deals-section, .editorial, .gift-section, .featured-section { width: calc(100% - 24px); }
+  .deals-section { padding: 22px 16px 12px; }
+  .deals-top { display: block; }
+  .location-wrap { margin-top: 12px; }
+  .section-support { max-width: 290px; }
+  .editorial { padding-top: 34px; }
+  .mosaic { grid-template-rows: 200px 158px 158px 140px; }
+  .gift-panel, .featured-panel { padding: 18px 13px 14px; }
+  .gift-heading, .featured-heading { font-size: 19px; }
+  .section-note { max-width: 235px; }
 }

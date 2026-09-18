@@ -4,7 +4,7 @@ import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import NotFound from '@/pages/not-found';
-import { Bell, ChevronLeft, ChevronRight, Gift, Heart, MapPin, MessageCircle, Search, ShoppingCart, Sparkles, Star, Tag, Ticket, UserRound, Utensils, Wrench, X } from 'lucide-react';
+import { Bell, ChevronDown, ChevronLeft, ChevronRight, Gift, Heart, MapPin, MessageCircle, Search, ShoppingCart, Sparkles, Star, UserRound, X } from 'lucide-react';
 import {
   Route,
   Switch,
@@ -34,21 +34,21 @@ function Home() {
     { id: 'massage', name: 'Full Body Massage at Denver School of Massage', meta: '7500 East Arapahoe Road, Centennial', rating: '4.7', reviews: '220', price: '$27.09', was: '$35', save: '26%', image: '/clean/massage.jpg', position: 'center', categories: ['Wellness'] },
     { id: 'facial', name: 'PDO Smooth Threads for Skin Rejuvenation', meta: '9695 South Yosemite Street, Lone Tree', rating: '5', reviews: '77', price: '$144', was: '$180', save: '40%', image: '/spa-hero.jpg', position: '75% 70%', categories: ['Skin'] },
     { id: 'salon', name: 'Spa A² at Westin Riverfront Resort And Residence', meta: '126 Riverfront Lane, Avon', rating: '4.8', reviews: '18', price: '$114', was: '$139', save: '18%', image: '/clean/salon.jpg', position: 'center', categories: ['Wellness'] },
-    { id: 'camera', name: 'Sale on Vintage Cameras and Film', meta: 'Five Points, Denver', rating: '4.6', reviews: '53', price: '$61', was: '$82', save: '25%', image: '/clean/cameras.jpg', position: 'center', categories: ['Hair'] },
+    { id: 'nail-art', name: 'Signature Nail Art and Gel Manicure', meta: 'Five Points, Denver', rating: '4.6', reviews: '53', price: '$61', was: '$82', save: '25%', image: '/clean/cameras.jpg', position: 'center', categories: ['Nails'] },
   ];
   const giftDeals = [
-    { id: 'gift-bowling', name: 'Bowling (Shoes included) for Easy Fun with Friends at Lucky Strike', meta: 'East, DENVER', rating: '4.8', reviews: '5,140', price: '$39', was: '$70.49', save: '-45%', cashback: '5% Cashback', image: '/clean/group.jpg', position: 'center' },
-    { id: 'gift-resort', name: 'Great Wolf Lodge Colorado Springs Water Park Resort', meta: 'Colorado Springs, CO', rating: '4.6', reviews: '2,913', price: '$128.84/night', was: '$198.20', save: '-35%', cashback: '5% Cashback', image: '/clean/friends.jpg', position: 'center' },
-    { id: 'gift-massage', name: 'Couples 50-Minutes Therapy Deep Tissue or Swedish Body Massage', meta: 'West Westminster, Westminster', rating: '4.4', reviews: '188', price: '$160.29', was: '$296', save: '-40%', cashback: 'Popular Gift', image: '/spa-hero.jpg', position: '75% 70%' },
-    { id: 'gift-oil-change', name: 'Up to 31% Off Jiffy Lube: 15-Minute Drive-Thru Oil Change', meta: 'Northeast, Denver', rating: '4.4', reviews: '9,864', price: '$39.99', was: '$57.99', save: '-31%', cashback: '5% Cashback', image: '/clean/lavender.jpg', position: 'center' },
-    { id: 'gift-spa', name: 'Relax and recharge with a spa day made for gifting', meta: 'Aurora, CO', rating: '4.7', reviews: '1,028', price: '$74', was: '$110', save: '-33%', cashback: 'Popular Gift', image: '/clean/salon.jpg', position: 'center' },
+    { id: 'gift-bowling', name: 'Classic Gel Manicure at Gloss Nail Studio', meta: 'East Colfax, Denver', rating: '4.8', reviews: '514', price: '$39', was: '$70', save: '-45%', cashback: 'Popular service', image: '/clean/group.jpg', position: 'center' },
+    { id: 'gift-resort', name: 'Signature Pedicure at The Polished Room', meta: 'Cherry Creek, Denver', rating: '4.6', reviews: '291', price: '$64', was: '$98', save: '-35%', cashback: '5% Cashback', image: '/clean/friends.jpg', position: 'center' },
+    { id: 'gift-massage', name: 'Gel Extensions and Nail Art at Muse Nails', meta: 'West Westminster, Westminster', rating: '4.4', reviews: '188', price: '$86', was: '$140', save: '-40%', cashback: 'Popular service', image: '/spa-hero.jpg', position: '75% 70%' },
+    { id: 'gift-oil-change', name: 'Express Mani-Pedi at Juniper Nail Bar', meta: 'Northeast, Denver', rating: '4.4', reviews: '986', price: '$39.99', was: '$58', save: '-31%', cashback: '5% Cashback', image: '/clean/lavender.jpg', position: 'center' },
+    { id: 'gift-spa', name: 'Spa Pedicure and Callus Care at Olive & Ivy', meta: 'Aurora, CO', rating: '4.7', reviews: '1,028', price: '$74', was: '$110', save: '-33%', cashback: 'Popular service', image: '/clean/salon.jpg', position: 'center' },
   ];
   const featuredDeals = [
-    { id: 'featured-vitality', brand: 'Clinical Care 365', name: 'Unlock Your Natural Vitality up to 200 Units of Jeuveau', meta: '10375 Park Meadows Drive, Lone Tree', rating: '4.4', reviews: '268', price: '$121.50', was: '$280', save: '-57%', image: '/clean/friends.jpg', position: 'center' },
-    { id: 'featured-botox', brand: 'Clinical Care 365', name: 'The ONLY Genuine BOTOX® 20, 40, 60, 100 or 200 Units', meta: '10375 Park Meadows Drive, Lone Tree', rating: '4.4', reviews: '268', price: '$143.10', was: '$280', save: '-49%', image: '/clean/massage.jpg', position: 'center' },
-    { id: 'featured-morpheus', brand: 'Clinical Care 365', name: 'The Real Morpheus8, HIFU and PRP packages at 365 Clinical Care', meta: '10375 Park Meadows Drive, Lone Tree', rating: '4.4', reviews: '267', price: '$314.99', was: '$750', save: '-58%', image: '/spa-hero.jpg', position: '70% 67%' },
-    { id: 'featured-sharper', brand: 'Sharper Image', name: 'EXCLUSIVE 25% Off Sitewide w/ Sharper Image Promo Code', meta: 'Online deal', rating: '4.6', reviews: '1,204', price: '$74.99', was: '$99.99', save: '-25%', image: '/clean/salon.jpg', position: 'center' },
-    { id: 'featured-wellness', brand: 'Recharge Wellness', name: 'Personalized facial and recovery treatments for less', meta: 'Aurora, CO', rating: '4.7', reviews: '412', price: '$89', was: '$135', save: '-34%', image: '/clean/nails.jpg', position: 'center' },
+    { id: 'featured-vitality', brand: 'Gloss Nail Studio', name: 'A bright, modern nail bar for clean gel sets', meta: 'East Colfax, Denver', rating: '4.4', reviews: '268', price: 'From $42', was: 'From $58', save: '-28%', image: '/clean/friends.jpg', position: 'center' },
+    { id: 'featured-botox', brand: 'The Polished Room', name: 'Relaxed manicures and detailed pedicures', meta: 'Cherry Creek, Denver', rating: '4.4', reviews: '268', price: 'From $48', was: 'From $65', save: '-26%', image: '/clean/massage.jpg', position: 'center' },
+    { id: 'featured-morpheus', brand: 'Muse Nails', name: 'Custom nail art, extensions, and luxury care', meta: 'West Westminster, Westminster', rating: '4.4', reviews: '267', price: 'From $72', was: 'From $95', save: '-24%', image: '/spa-hero.jpg', position: '70% 67%' },
+    { id: 'featured-sharper', brand: 'Juniper Nail Bar', name: 'Quick, polished appointments for busy weeks', meta: 'Northeast, Denver', rating: '4.6', reviews: '1,204', price: 'From $35', was: 'From $49', save: '-29%', image: '/clean/salon.jpg', position: 'center' },
+    { id: 'featured-wellness', brand: 'Olive & Ivy', name: 'Slow beauty rituals and spa pedicures', meta: 'Aurora, CO', rating: '4.7', reviews: '412', price: 'From $59', was: 'From $84', save: '-30%', image: '/clean/nails.jpg', position: 'center' },
   ];
   const dealRailRef = useRef<HTMLDivElement>(null);
   const giftRailRef = useRef<HTMLDivElement>(null);
@@ -81,7 +81,7 @@ function Home() {
                 <button className="icon-action" onClick={() => setFeedback('Your saved deals are waiting here')} aria-label="Saved deals"><Heart size={18} strokeWidth={1.6} /><span className="cart-count">{favorites.length}</span></button>
                 <button className="icon-action" onClick={() => setFeedback('No new notifications')} aria-label="Notifications"><Bell size={18} strokeWidth={1.6} /></button>
                 <button className="icon-action" data-testid="button-cart" onClick={() => setFeedback('Your cart is waiting here')} aria-label="Cart"><ShoppingCart size={19} strokeWidth={1.6} /><span className="cart-count cart-count-cart">{favorites.length || 1}</span></button>
-                <button className="profile-button" onClick={() => setFeedback('Account menu')}>TB <span>⌄</span></button>
+               <button className="profile-button" onClick={() => setFeedback('Account menu')}>TB <ChevronDown size={13} /></button>
               </div>
             </div>
           </div>
@@ -89,13 +89,16 @@ function Home() {
             {categories.map(({ name, key, icon: Icon }) => <button key={name} className={`category-item ${category === key ? 'active' : ''}`} data-testid={`button-category-${name.toLowerCase().replaceAll(' ', '-')}`} onClick={() => setCategory(key)}><Icon size={15} strokeWidth={1.4} />{name}</button>)}
           </nav>
         </header>
-        <section className="hero" aria-label="Promotion">
+        <section className="hero" aria-label="Limited-time beauty deals">
           <img src="/spa-hero.jpg" alt="Relaxing facial treatment" />
-          <div className="hero-copy"><div className="hero-title">Recharge your Glow</div><div className="hero-subtitle">Extra savings on facial care — this week only!</div></div>
+           <div className="hero-copy"><div className="hero-title">Recharge your Glow</div><div className="hero-subtitle">Shop limited-time prices on facials, massage, nails, and more from trusted providers near you.</div></div>
         </section>
         <section className="deals-section">
           <div className="deals-top">
-            <h2 className="section-heading">Trending Deals</h2>
+            <div>
+              <h2 className="section-heading">Shop limited-time beauty deals</h2>
+              <p className="section-support">Fresh local offers, ready to book today. Start with a deal, then find your new favorite salon below.</p>
+            </div>
             <div className="location-wrap">
               <button className="location-button" data-testid="button-location" onClick={() => setShowLocations((value) => !value)}><MapPin size={8} fill="currentColor" /> <strong>{location}</strong> · <span>Change Location</span></button>
               {showLocations && <div className="location-menu" data-testid="menu-locations">{['Aurora, CO', 'Denver, CO', 'Boulder, CO'].map((place) => <button key={place} data-testid={`button-location-${place.split(',')[0].toLowerCase()}`} onClick={() => { setLocation(place); setShowLocations(false); }}>{place}</button>)}</div>}
@@ -104,8 +107,8 @@ function Home() {
           <div className="deal-rail-wrap">
             <button className="rail-arrow rail-arrow-left" onClick={() => scrollDealRail(-1)} aria-label="Previous trending deals"><ChevronLeft size={17} /></button>
             <div className="deal-rail no-scrollbar" ref={dealRailRef} data-testid="deal-rail">
-              {filteredDeals.length ? filteredDeals.map((deal) => <article key={deal.id} className="deal-card" data-testid={`card-deal-${deal.id}`} onClick={() => selectDeal(deal.name)}>
-              <div className="deal-image"><img src={deal.image} alt="" style={{ objectPosition: deal.position }} /><span className="deal-badge">▣ Popular Gift</span><button className={`heart-button ${favorites.includes(deal.id) ? 'loved' : ''}`} data-testid={`button-favorite-${deal.id}`} onClick={(event) => { event.stopPropagation(); toggleFavorite(deal.id); }} aria-label={`Favorite ${deal.name}`}><Heart size={11} fill={favorites.includes(deal.id) ? 'currentColor' : 'none'} /></button></div>
+               {filteredDeals.length ? filteredDeals.map((deal) => <article key={deal.id} className="deal-card" data-testid={`card-deal-${deal.id}`} onClick={() => selectDeal(deal.name)}>
+               <div className="deal-image"><img src={deal.image} alt="" style={{ objectPosition: deal.position }} /><span className="deal-badge">Limited-time deal</span><button className={`heart-button ${favorites.includes(deal.id) ? 'loved' : ''}`} data-testid={`button-favorite-${deal.id}`} onClick={(event) => { event.stopPropagation(); toggleFavorite(deal.id); }} aria-label={`Favorite ${deal.name}`}><Heart size={11} fill={favorites.includes(deal.id) ? 'currentColor' : 'none'} /></button></div>
                <div className="deal-name">{deal.name}</div><div className="deal-meta">{deal.meta}</div><div className="deal-rating"><Star size={8} fill="currentColor" /> {deal.rating} ({deal.reviews})</div><div className="deal-price"><del>{deal.was}</del>{deal.price}</div>
             </article>) : <div className="empty-deals" data-testid="empty-deals">No deals match your search. Try a different category.</div>}
             </div>
@@ -113,20 +116,13 @@ function Home() {
           </div>
           <div className="card-feedback" data-testid="status-feedback">{feedback}</div>
         </section>
-        <section className="editorial" aria-label="Explore experiences">
-          <div className="mosaic">
-            <article className="mosaic-card" data-testid="card-editorial-recharge" onClick={() => selectDeal('Recharge This Fall')}><img src="/spa-hero.jpg" alt="Woman enjoying a spa treatment" /><div className="mosaic-label">Recharge This Fall<small>Massage, facials, spas & fitness up to 80% off</small></div></article>
-            <article className="mosaic-card" data-testid="card-editorial-summer" onClick={() => selectDeal('Summerween starts now')}><img src="/clean/lavender.jpg" alt="Summer experience" /><div className="mosaic-label">Summerween starts now<small>Save on spooky fun before Halloween prices rise</small></div></article>
-            <article className="mosaic-card" data-testid="card-editorial-office" onClick={() => selectDeal('Save on Office 2024')}><img src="/clean/salon.jpg" alt="Bright home office" /><div className="mosaic-label">Save on Office 2024<small>Get a Lifetime License for Less</small></div></article>
-            <article className="mosaic-card" data-testid="card-editorial-getaway" onClick={() => selectDeal('Your Turn to Get Away')}><img src="/clean/friends.jpg" alt="Friends enjoying a getaway" /><div className="mosaic-label">Your Turn to Get Away</div></article>
-            <article className="mosaic-card" data-testid="card-editorial-memories" onClick={() => selectDeal('Preserve Memories')}><img src="/clean/cameras.jpg" alt="Vintage cameras" /><div className="mosaic-label">Preserve Memories</div></article>
-            <article className="mosaic-card" data-testid="card-editorial-final" onClick={() => selectDeal('Explore More')}><img src="/clean/group.jpg" alt="Explore more deals" /></article>
-          </div>
-        </section>
         <section className="gift-section" aria-labelledby="trending-gifts-heading">
           <div className="gift-panel">
-            <div className="gift-heading-row">
-              <h2 id="trending-gifts-heading" className="gift-heading"><Gift size={16} strokeWidth={1.7} /> Trending gifts</h2>
+             <div className="gift-heading-row">
+               <div>
+                  <h2 id="trending-gifts-heading" className="gift-heading"><Gift size={16} strokeWidth={1.7} /> Trending gifts from nail salons</h2>
+                  <p className="section-note">Giftable manicures, pedicures, and nail art from studios around {location}.</p>
+               </div>
               <button className="gift-see-all" onClick={() => setFeedback('Showing all trending gifts')}>See all <ChevronRight size={15} /></button>
             </div>
             <div className="gift-rail-wrap">
@@ -136,7 +132,7 @@ function Home() {
                 <div className="gift-image"><img src={deal.image} style={{ objectPosition: deal.position }} alt="" /><span className={`gift-badge ${deal.cashback === 'Popular Gift' ? 'popular' : ''}`}>{deal.cashback}</span><button className="gift-heart" onClick={(event) => { event.stopPropagation(); toggleFavorite(deal.id); }} aria-label={`Favorite ${deal.name}`}><Heart size={17} /></button></div>
                 <div className="gift-name">{deal.name}</div>
                 <div className="gift-meta">{deal.meta}</div>
-                <div className="gift-location"><MapPin size={11} fill="currentColor" /> {deal.meta.split(',')[0]} <span>◆ {deal.id === 'gift-oil-change' ? '3.2' : deal.id === 'gift-resort' ? '50.7' : '4.6'} mi</span></div>
+                <div className="gift-location"><MapPin size={11} fill="currentColor" /> {deal.meta.split(',')[0]} <span>{deal.id === 'gift-oil-change' ? '3.2' : deal.id === 'gift-resort' ? '50.7' : '4.6'} mi away</span></div>
                 <div className="gift-rating"><Star size={12} fill="currentColor" /> {deal.rating} <span>({deal.reviews})</span></div>
                 <div className="gift-price"><del>{deal.was}</del> <strong>{deal.price}</strong> <span>{deal.save}</span></div>
               </article>)}
@@ -148,18 +144,19 @@ function Home() {
         </section>
         <section className="featured-section" aria-labelledby="featured-deals-heading">
           <div className="featured-panel">
-            <div className="featured-heading-row">
-              <h2 id="featured-deals-heading" className="featured-heading"><MessageCircle size={16} strokeWidth={1.7} /> Featured deals</h2>
+             <div className="featured-heading-row">
+                <h2 id="featured-deals-heading" className="featured-heading"><MessageCircle size={16} strokeWidth={1.7} /> Featured nail salons</h2>
+                <p className="section-note">Meet the nail studios your neighbors are booking now.</p>
             </div>
             <div className="featured-rail-wrap">
               <button className="featured-arrow featured-arrow-left" onClick={() => scrollFeaturedDeals(-1)} aria-label="Previous featured deals"><ChevronLeft size={17} /></button>
               <div className="featured-rail no-scrollbar" ref={featuredRailRef} data-testid="featured-rail">
                 {featuredDeals.map((deal) => <article key={deal.id} className="featured-card" data-testid={`card-featured-${deal.id}`} onClick={() => selectDeal(deal.name)}>
-                  <div className="featured-image"><img src={deal.image} style={{ objectPosition: deal.position }} alt="" /><span className="featured-badge">Sponsored</span><button className="featured-heart" onClick={(event) => { event.stopPropagation(); toggleFavorite(deal.id); }} aria-label={`Favorite ${deal.name}`}><Heart size={18} /></button></div>
+                   <div className="featured-image"><img src={deal.image} style={{ objectPosition: deal.position }} alt="" /><span className="featured-badge">Local provider</span><button className="featured-heart" onClick={(event) => { event.stopPropagation(); toggleFavorite(deal.id); }} aria-label={`Favorite ${deal.name}`}><Heart size={18} /></button></div>
                   <div className="featured-source">{deal.brand}</div>
                   <div className="featured-name">{deal.name}</div>
                   <div className="featured-meta">{deal.meta}</div>
-                  <div className="featured-rating"><Star size={12} fill="currentColor" /> {deal.rating} <span>({deal.reviews})</span><span className="featured-distance">◆ 13.3 mi</span></div>
+                  <div className="featured-rating"><Star size={12} fill="currentColor" /> {deal.rating} <span>({deal.reviews})</span><span className="featured-distance">13.3 mi away</span></div>
                   <div className="featured-price"><del>{deal.was}</del> <strong>{deal.price}</strong> <span>{deal.save}</span><em>Limited time</em></div>
                 </article>)}
               </div>
