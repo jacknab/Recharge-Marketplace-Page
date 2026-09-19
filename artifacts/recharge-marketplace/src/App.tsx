@@ -37,11 +37,11 @@ function Home() {
     { id: 'nail-art', name: 'Signature Nail Art and Gel Manicure', meta: 'Five Points, Denver', rating: '4.6', reviews: '53', price: '$61', was: '$82', save: '25%', image: '/clean/cameras.jpg', position: 'center', categories: ['Nails'] },
   ];
   const giftDeals = [
-    { id: 'gift-bowling', name: 'Classic Gel Manicure at Gloss Nail Studio', meta: 'East Colfax, Denver', rating: '4.8', reviews: '514', price: '$39', was: '$70', save: '-45%', cashback: 'Popular service', image: '/clean/group.jpg', position: 'center' },
-    { id: 'gift-resort', name: 'Signature Pedicure at The Polished Room', meta: 'Cherry Creek, Denver', rating: '4.6', reviews: '291', price: '$64', was: '$98', save: '-35%', cashback: '5% Cashback', image: '/clean/friends.jpg', position: 'center' },
-    { id: 'gift-massage', name: 'Gel Extensions and Nail Art at Muse Nails', meta: 'West Westminster, Westminster', rating: '4.4', reviews: '188', price: '$86', was: '$140', save: '-40%', cashback: 'Popular service', image: '/spa-hero.jpg', position: '75% 70%' },
-    { id: 'gift-oil-change', name: 'Express Mani-Pedi at Juniper Nail Bar', meta: 'Northeast, Denver', rating: '4.4', reviews: '986', price: '$39.99', was: '$58', save: '-31%', cashback: '5% Cashback', image: '/clean/lavender.jpg', position: 'center' },
-    { id: 'gift-spa', name: 'Spa Pedicure and Callus Care at Olive & Ivy', meta: 'Aurora, CO', rating: '4.7', reviews: '1,028', price: '$74', was: '$110', save: '-33%', cashback: 'Popular service', image: '/clean/salon.jpg', position: 'center' },
+    { id: 'gift-bowling', name: 'Classic Gel Manicure at Gloss Nail Studio', meta: 'East Colfax, Denver', rating: '4.8', reviews: '514', price: '$39', was: '$70', save: '-45%', image: '/clean/group.jpg', position: 'center' },
+    { id: 'gift-resort', name: 'Signature Pedicure at The Polished Room', meta: 'Cherry Creek, Denver', rating: '4.6', reviews: '291', price: '$64', was: '$98', save: '-35%', image: '/clean/friends.jpg', position: 'center' },
+    { id: 'gift-massage', name: 'Gel Extensions and Nail Art at Muse Nails', meta: 'West Westminster, Westminster', rating: '4.4', reviews: '188', price: '$86', was: '$140', save: '-40%', image: '/spa-hero.jpg', position: '75% 70%' },
+    { id: 'gift-oil-change', name: 'Express Mani-Pedi at Juniper Nail Bar', meta: 'Northeast, Denver', rating: '4.4', reviews: '986', price: '$39.99', was: '$58', save: '-31%', image: '/clean/lavender.jpg', position: 'center' },
+    { id: 'gift-spa', name: 'Spa Pedicure and Callus Care at Olive & Ivy', meta: 'Aurora, CO', rating: '4.7', reviews: '1,028', price: '$74', was: '$110', save: '-33%', image: '/clean/salon.jpg', position: 'center' },
   ];
   const featuredSalons = [
     { id: 'featured-gloss', brand: 'Gloss Nail Studio', name: 'A bright, modern nail bar for clean gel sets', meta: 'East Colfax, Denver', rating: '4.4', reviews: '268', image: '/clean/friends.jpg', position: 'center' },
@@ -127,7 +127,7 @@ function Home() {
             <button className="rail-arrow rail-arrow-left" onClick={() => scrollDealRail(-1)} aria-label="Previous trending deals"><ChevronLeft size={17} /></button>
             <div className="deal-rail no-scrollbar" ref={dealRailRef} data-testid="deal-rail">
                {filteredDeals.length ? filteredDeals.map((deal) => <article key={deal.id} className="deal-card" data-testid={`card-deal-${deal.id}`} onClick={() => selectDeal(deal.name)}>
-               <div className="deal-image"><img src={deal.image} alt="" style={{ objectPosition: deal.position }} /><span className="deal-badge">Limited-time deal</span><button className={`heart-button ${favorites.includes(deal.id) ? 'loved' : ''}`} data-testid={`button-favorite-${deal.id}`} onClick={(event) => { event.stopPropagation(); toggleFavorite(deal.id); }} aria-label={`Favorite ${deal.name}`}><Heart size={11} fill={favorites.includes(deal.id) ? 'currentColor' : 'none'} /></button></div>
+                <div className="deal-image"><img src={deal.image} alt="" style={{ objectPosition: deal.position }} /><button className={`heart-button ${favorites.includes(deal.id) ? 'loved' : ''}`} data-testid={`button-favorite-${deal.id}`} onClick={(event) => { event.stopPropagation(); toggleFavorite(deal.id); }} aria-label={`Favorite ${deal.name}`}><Heart size={11} fill={favorites.includes(deal.id) ? 'currentColor' : 'none'} /></button></div>
                <div className="deal-name">{deal.name}</div><div className="deal-meta">{deal.meta}</div><div className="deal-rating"><Star size={8} fill="currentColor" /> {deal.rating} ({deal.reviews})</div><div className="deal-price"><del>{deal.was}</del>{deal.price}</div>
             </article>) : <div className="empty-deals" data-testid="empty-deals">No deals match your search. Try a different category.</div>}
             </div>
@@ -148,7 +148,7 @@ function Home() {
               <button className="rail-arrow rail-arrow-left" onClick={() => scrollGiftRail(-1)} aria-label="Previous trending gifts"><ChevronLeft size={17} /></button>
               <div className="gift-rail no-scrollbar" ref={giftRailRef} data-testid="gift-rail">
               {giftDeals.map((deal) => <article key={deal.id} className="gift-card" data-testid={`card-gift-${deal.id}`} onClick={() => selectDeal(deal.name)}>
-                <div className="gift-image"><img src={deal.image} style={{ objectPosition: deal.position }} alt="" /><span className={`gift-badge ${deal.cashback === 'Popular Gift' ? 'popular' : ''}`}>{deal.cashback}</span><button className="gift-heart" onClick={(event) => { event.stopPropagation(); toggleFavorite(deal.id); }} aria-label={`Favorite ${deal.name}`}><Heart size={17} /></button></div>
+                 <div className="gift-image"><img src={deal.image} style={{ objectPosition: deal.position }} alt="" /><button className="gift-heart" onClick={(event) => { event.stopPropagation(); toggleFavorite(deal.id); }} aria-label={`Favorite ${deal.name}`}><Heart size={17} /></button></div>
                 <div className="gift-name">{deal.name}</div>
                 <div className="gift-meta">{deal.meta}</div>
                 <div className="gift-location"><MapPin size={11} fill="currentColor" /> {deal.meta.split(',')[0]} <span>{deal.id === 'gift-oil-change' ? '3.2' : deal.id === 'gift-resort' ? '50.7' : '4.6'} mi away</span></div>
@@ -170,7 +170,7 @@ function Home() {
             <div className="featured-rail-wrap">
               <div className="featured-rail no-scrollbar" ref={featuredRailRef} data-testid="featured-rail">
                  {featuredSalons.map((salon) => <article key={salon.id} className="featured-card" data-testid={`card-featured-${salon.id}`} onClick={() => selectDeal(salon.name)}>
-                    <div className="featured-image"><img src={salon.image} style={{ objectPosition: salon.position }} alt="" /><span className="featured-badge">Local provider</span><button className="featured-heart" onClick={(event) => { event.stopPropagation(); toggleFavorite(salon.id); }} aria-label={`Favorite ${salon.name}`}><Heart size={18} /></button></div>
+                    <div className="featured-image"><img src={salon.image} style={{ objectPosition: salon.position }} alt="" /><button className="featured-heart" onClick={(event) => { event.stopPropagation(); toggleFavorite(salon.id); }} aria-label={`Favorite ${salon.name}`}><Heart size={18} /></button></div>
                    <div className="featured-source">{salon.brand}</div>
                    <div className="featured-name">{salon.name}</div>
                    <div className="featured-meta">{salon.meta}</div>
