@@ -175,7 +175,7 @@
 .featured-meta { margin-top: 4px; color: #5c5660; font-size: 9px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .featured-rating { display: flex; align-items: center; gap: 3px; margin-top: 6px; color: #e4a42c; font-size: 10px; font-weight: 700; }
 .featured-rating span { color: #554f58; font-weight: 500; }
-.featured-distance { margin-top: 4px; color: #69636b; font-size: 9px; }
+.featured-distance { margin-top: 3px; color: #69636b; font-size: 8px; line-height: 1.2; font-weight: 400; }
 @media (max-width: 540px) {
   .market-shell { box-shadow: none; }
   .cart-button { right: 18px; }
