@@ -43,19 +43,38 @@ function Home() {
     { id: 'gift-oil-change', name: 'Express Mani-Pedi at Juniper Nail Bar', meta: 'Northeast, Denver', rating: '4.4', reviews: '986', price: '$39.99', was: '$58', save: '-31%', cashback: '5% Cashback', image: '/clean/lavender.jpg', position: 'center' },
     { id: 'gift-spa', name: 'Spa Pedicure and Callus Care at Olive & Ivy', meta: 'Aurora, CO', rating: '4.7', reviews: '1,028', price: '$74', was: '$110', save: '-33%', cashback: 'Popular service', image: '/clean/salon.jpg', position: 'center' },
   ];
-  const featuredDeals = [
-    { id: 'featured-vitality', brand: 'Gloss Nail Studio', name: 'A bright, modern nail bar for clean gel sets', meta: 'East Colfax, Denver', rating: '4.4', reviews: '268', price: 'From $42', was: 'From $58', save: '-28%', image: '/clean/friends.jpg', position: 'center' },
-    { id: 'featured-botox', brand: 'The Polished Room', name: 'Relaxed manicures and detailed pedicures', meta: 'Cherry Creek, Denver', rating: '4.4', reviews: '268', price: 'From $48', was: 'From $65', save: '-26%', image: '/clean/massage.jpg', position: 'center' },
-    { id: 'featured-morpheus', brand: 'Muse Nails', name: 'Custom nail art, extensions, and luxury care', meta: 'West Westminster, Westminster', rating: '4.4', reviews: '267', price: 'From $72', was: 'From $95', save: '-24%', image: '/spa-hero.jpg', position: '70% 67%' },
-    { id: 'featured-sharper', brand: 'Juniper Nail Bar', name: 'Quick, polished appointments for busy weeks', meta: 'Northeast, Denver', rating: '4.6', reviews: '1,204', price: 'From $35', was: 'From $49', save: '-29%', image: '/clean/salon.jpg', position: 'center' },
-    { id: 'featured-wellness', brand: 'Olive & Ivy', name: 'Slow beauty rituals and spa pedicures', meta: 'Aurora, CO', rating: '4.7', reviews: '412', price: 'From $59', was: 'From $84', save: '-30%', image: '/clean/nails.jpg', position: 'center' },
+  const featuredSalons = [
+    { id: 'featured-gloss', brand: 'Gloss Nail Studio', name: 'A bright, modern nail bar for clean gel sets', meta: 'East Colfax, Denver', rating: '4.4', reviews: '268', image: '/clean/friends.jpg', position: 'center' },
+    { id: 'featured-polished', brand: 'The Polished Room', name: 'Relaxed manicures and detailed pedicures', meta: 'Cherry Creek, Denver', rating: '4.4', reviews: '268', image: '/clean/massage.jpg', position: 'center' },
+    { id: 'featured-muse', brand: 'Muse Nails', name: 'Custom nail art, extensions, and luxury care', meta: 'West Westminster, Westminster', rating: '4.4', reviews: '267', image: '/spa-hero.jpg', position: '70% 67%' },
+    { id: 'featured-juniper', brand: 'Juniper Nail Bar', name: 'Quick, polished appointments for busy weeks', meta: 'Northeast, Denver', rating: '4.6', reviews: '1,204', image: '/clean/salon.jpg', position: 'center' },
+    { id: 'featured-olive', brand: 'Olive & Ivy', name: 'Slow beauty rituals and spa pedicures', meta: 'Aurora, CO', rating: '4.7', reviews: '412', image: '/clean/nails.jpg', position: 'center' },
+    { id: 'featured-blush', brand: 'Blush & Buff', name: 'Soft color palettes and careful natural nail care', meta: 'Capitol Hill, Denver', rating: '4.5', reviews: '386', image: '/clean/friends.jpg', position: 'center' },
+    { id: 'featured-cinder', brand: 'Cinder Nail Co.', name: 'Modern nail art in a relaxed neighborhood studio', meta: 'Baker, Denver', rating: '4.8', reviews: '179', image: '/clean/massage.jpg', position: 'center' },
+    { id: 'featured-lacquer', brand: 'Lacquer Lounge', name: 'Classic polish, gel finishes, and tidy details', meta: 'Lowry, Denver', rating: '4.3', reviews: '521', image: '/spa-hero.jpg', position: '70% 67%' },
+    { id: 'featured-poppy', brand: 'Poppy Nail House', name: 'Color-forward manicures for every season', meta: 'South Broadway, Denver', rating: '4.6', reviews: '304', image: '/clean/salon.jpg', position: 'center' },
+    { id: 'featured-sage', brand: 'Sage Beauty Bar', name: 'Quiet appointments and restorative pedicures', meta: 'Central Park, Denver', rating: '4.7', reviews: '447', image: '/clean/nails.jpg', position: 'center' },
+    { id: 'featured-velvet', brand: 'Velvet Tips', name: 'Detailed nail art with a warm studio feel', meta: 'Five Points, Denver', rating: '4.5', reviews: '233', image: '/clean/friends.jpg', position: 'center' },
+    { id: 'featured-citrine', brand: 'Citrine Studio', name: 'Clean gel sets and expressive custom designs', meta: 'Washington Park, Denver', rating: '4.6', reviews: '198', image: '/clean/massage.jpg', position: 'center' },
+    { id: 'featured-rosewood', brand: 'Rosewood Nails', name: 'Polished essentials and gentle hand care', meta: 'Highlands, Denver', rating: '4.4', reviews: '615', image: '/spa-hero.jpg', position: '70% 67%' },
+    { id: 'featured-ember', brand: 'Ember Nail Atelier', name: 'Artful extensions and long-lasting finishes', meta: 'RiNo, Denver', rating: '4.8', reviews: '156', image: '/clean/salon.jpg', position: 'center' },
+    { id: 'featured-magnolia', brand: 'Magnolia Mani Co.', name: 'Fresh manicures in a calm, welcoming space', meta: 'Stapleton, Denver', rating: '4.5', reviews: '342', image: '/clean/nails.jpg', position: 'center' },
+    { id: 'featured-copper', brand: 'Copper Moon Nails', name: 'Minimal nail art and glossy gel finishes', meta: 'Sloan’s Lake, Denver', rating: '4.7', reviews: '289', image: '/clean/friends.jpg', position: 'center' },
+    { id: 'featured-honey', brand: 'Honeycomb Beauty', name: 'Playful colors and thoughtful nail care', meta: 'Aurora Highlands, Aurora', rating: '4.4', reviews: '274', image: '/clean/massage.jpg', position: 'center' },
+    { id: 'featured-violet', brand: 'Violet Hour Nails', name: 'Rich color, fine details, and relaxing service', meta: 'Congress Park, Denver', rating: '4.6', reviews: '367', image: '/spa-hero.jpg', position: '70% 67%' },
+    { id: 'featured-marlow', brand: 'Marlow Nail Room', name: 'Personalized sets from a small local team', meta: 'Westminster, CO', rating: '4.7', reviews: '221', image: '/clean/salon.jpg', position: 'center' },
+    { id: 'featured-opal', brand: 'Opal Nail Studio', name: 'Bright, clean manicures and spa pedicures', meta: 'Cherry Creek North, Denver', rating: '4.5', reviews: '488', image: '/clean/nails.jpg', position: 'center' },
+    { id: 'featured-park', brand: 'Parkside Polish', name: 'Easygoing appointments near the park', meta: 'City Park, Denver', rating: '4.3', reviews: '193', image: '/clean/friends.jpg', position: 'center' },
+    { id: 'featured-luna', brand: 'Luna Nail Lab', name: 'Precise shaping and modern nail finishes', meta: 'Arvada, CO', rating: '4.8', reviews: '302', image: '/clean/massage.jpg', position: 'center' },
+    { id: 'featured-satin', brand: 'Satin Nails', name: 'Elegant sets and unhurried self-care', meta: 'Belmar, Lakewood', rating: '4.6', reviews: '264', image: '/spa-hero.jpg', position: '70% 67%' },
+    { id: 'featured-dahlia', brand: 'Dahlia Beauty Studio', name: 'Soft, polished looks for every occasion', meta: 'Boulder, CO', rating: '4.7', reviews: '351', image: '/clean/salon.jpg', position: 'center' },
+    { id: 'featured-north', brand: 'Northside Nail Club', name: 'Neighborhood nail care with a creative edge', meta: 'Northglenn, CO', rating: '4.4', reviews: '187', image: '/clean/nails.jpg', position: 'center' },
   ];
   const dealRailRef = useRef<HTMLDivElement>(null);
   const giftRailRef = useRef<HTMLDivElement>(null);
   const featuredRailRef = useRef<HTMLDivElement>(null);
   const scrollDealRail = (direction: number) => dealRailRef.current?.scrollBy({ left: direction * 230, behavior: 'smooth' });
   const scrollGiftRail = (direction: number) => giftRailRef.current?.scrollBy({ left: direction * 230, behavior: 'smooth' });
-  const scrollFeaturedDeals = (direction: number) => featuredRailRef.current?.scrollBy({ left: direction * 235, behavior: 'smooth' });
   const filteredDeals = useMemo(() => deals.filter((deal) => {
     const matchesCategory = category === 'All' || deal.categories.includes(category);
     const haystack = `${deal.name} ${deal.meta} ${deal.categories.join(' ')}`.toLowerCase();
@@ -142,25 +161,22 @@ function Home() {
           </div>
           <div className="card-feedback gift-feedback" data-testid="gift-feedback">{feedback}</div>
         </section>
-        <section className="featured-section" aria-labelledby="featured-deals-heading">
+         <section className="featured-section" aria-labelledby="featured-salons-heading">
           <div className="featured-panel">
              <div className="featured-heading-row">
-                <h2 id="featured-deals-heading" className="featured-heading"><MessageCircle size={16} strokeWidth={1.7} /> Featured nail salons</h2>
+                 <h2 id="featured-salons-heading" className="featured-heading"><MessageCircle size={16} strokeWidth={1.7} /> Featured nail salons</h2>
                 <p className="section-note">Meet the nail studios your neighbors are booking now.</p>
             </div>
             <div className="featured-rail-wrap">
-              <button className="featured-arrow featured-arrow-left" onClick={() => scrollFeaturedDeals(-1)} aria-label="Previous featured deals"><ChevronLeft size={17} /></button>
               <div className="featured-rail no-scrollbar" ref={featuredRailRef} data-testid="featured-rail">
-                {featuredDeals.map((deal) => <article key={deal.id} className="featured-card" data-testid={`card-featured-${deal.id}`} onClick={() => selectDeal(deal.name)}>
-                   <div className="featured-image"><img src={deal.image} style={{ objectPosition: deal.position }} alt="" /><span className="featured-badge">Local provider</span><button className="featured-heart" onClick={(event) => { event.stopPropagation(); toggleFavorite(deal.id); }} aria-label={`Favorite ${deal.name}`}><Heart size={18} /></button></div>
-                  <div className="featured-source">{deal.brand}</div>
-                  <div className="featured-name">{deal.name}</div>
-                  <div className="featured-meta">{deal.meta}</div>
-                  <div className="featured-rating"><Star size={12} fill="currentColor" /> {deal.rating} <span>({deal.reviews})</span><span className="featured-distance">13.3 mi away</span></div>
-                  <div className="featured-price"><del>{deal.was}</del> <strong>{deal.price}</strong> <span>{deal.save}</span><em>Limited time</em></div>
+                 {featuredSalons.map((salon) => <article key={salon.id} className="featured-card" data-testid={`card-featured-${salon.id}`} onClick={() => selectDeal(salon.name)}>
+                    <div className="featured-image"><img src={salon.image} style={{ objectPosition: salon.position }} alt="" /><span className="featured-badge">Local provider</span><button className="featured-heart" onClick={(event) => { event.stopPropagation(); toggleFavorite(salon.id); }} aria-label={`Favorite ${salon.name}`}><Heart size={18} /></button></div>
+                   <div className="featured-source">{salon.brand}</div>
+                   <div className="featured-name">{salon.name}</div>
+                   <div className="featured-meta">{salon.meta}</div>
+                   <div className="featured-rating"><Star size={12} fill="currentColor" /> {salon.rating} <span>({salon.reviews})</span><span className="featured-distance">13.3 mi away</span></div>
                 </article>)}
               </div>
-              <button className="featured-arrow featured-arrow-right" onClick={() => scrollFeaturedDeals(1)} aria-label="Next featured deals"><ChevronRight size={17} /></button>
             </div>
           </div>
         </section>
