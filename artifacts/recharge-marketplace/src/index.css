@@ -172,7 +172,6 @@
 .featured-card:hover .featured-image img { transform: scale(1.04); }
 .featured-heart { position: absolute; top: 6px; right: 6px; width: 29px; height: 29px; display: grid; place-items: center; border: 1px solid #d7d8dc; border-radius: 50%; background: rgba(255,255,255,.92); color: #8c9098; cursor: pointer; padding: 0; }
 .featured-source { margin-top: 8px; color: #625c66; font-size: 9px; }
-.featured-name { margin-top: 4px; min-height: 42px; color: #2e2730; font-size: 11px; line-height: 1.35; font-weight: 700; }
 .featured-meta { margin-top: 4px; color: #5c5660; font-size: 9px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .featured-rating { display: flex; align-items: center; gap: 3px; margin-top: 6px; color: #e4a42c; font-size: 10px; font-weight: 700; }
 .featured-rating span { color: #554f58; font-weight: 500; }

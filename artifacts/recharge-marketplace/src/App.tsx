@@ -172,7 +172,6 @@ function Home() {
                  {featuredSalons.map((salon) => <article key={salon.id} className="featured-card" data-testid={`card-featured-${salon.id}`} onClick={() => selectDeal(salon.name)}>
                     <div className="featured-image"><img src={salon.image} style={{ objectPosition: salon.position }} alt="" /><button className="featured-heart" onClick={(event) => { event.stopPropagation(); toggleFavorite(salon.id); }} aria-label={`Favorite ${salon.name}`}><Heart size={18} /></button></div>
                    <div className="featured-source">{salon.brand}</div>
-                   <div className="featured-name">{salon.name}</div>
                    <div className="featured-meta">{salon.meta}</div>
                    <div className="featured-rating"><Star size={12} fill="currentColor" /> {salon.rating} <span>({salon.reviews})</span><span className="featured-distance">13.3 mi away</span></div>
                 </article>)}
